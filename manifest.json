@@ -1,0 +1,20 @@
+{
+    "name": "MishehiLeKafe",
+    "short_name": "mishehilekafe",
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "background_color": "#fff",
+    "theme_color": "#333",
+    "icons": [
+        {
+            "src": "icons/logobig.svg",
+            "sizes": "192x192",
+            "type": "image/svg"
+        }, {
+            "src": "icons/singleCoffeeCup.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+       
+    ]
+}
