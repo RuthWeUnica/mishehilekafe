@@ -1,3 +1,29 @@
+importScripts('https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/9.20.0/firebase-messaging.js');
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
+  authDomain: "push-notifications-weunica.firebaseapp.com",
+  projectId: "push-notifications-weunica",
+  storageBucket: "push-notifications-weunica.firebasestorage.app",
+  messagingSenderId: "1042180147223",
+  appId: "1:1042180147223:web:3d73406c082f45dcac3452"
+};
+
+firebase.initializeApp(firebaseConfig);
+const messaging = firebase.messaging();
+
+messaging.onBackgroundMessage((payload) => {
+  console.log('Received background message ', payload);
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+      body: payload.notification.body,
+      icon: payload.notification.icon
+  };
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});
+
 const cacheName = 'your-website-cache-v1'; // Update the cache version
 
 const cachedAssets = [
@@ -61,3 +87,15 @@ function fetchAndCache(request) {
       console.error('Error fetching and caching:', error);
     });
 }
+
+self.addEventListener('push', function(event) {
+  const data = event.data.json();  // Assuming the server sends JSON
+  const options = {
+      body: data.body,
+      icon: 'icon.png',
+      badge: 'badge.png'
+  };
+  event.waitUntil(
+      self.registration.showNotification(data.title, options)
+  );
+});

@@ -10,6 +10,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+
 // document.addEventListener('DOMContentLoaded', () => {
 //     const iframe = document.getElementById('browser-container');
 //     function loadWebsite(url) {
