@@ -1,17 +1,21 @@
-importScripts('https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/11.0.0/firebase-messaging.js');
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
-//   authDomain: "push-notifications-weunica.firebaseapp.com",
-//   projectId: "push-notifications-weunica",
-//   storageBucket: "push-notifications-weunica.firebasestorage.app",
-//   messagingSenderId: "1042180147223",
-//   appId: "1:1042180147223:web:3d73406c082f45dcac3452"
-// };
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
+  authDomain: "push-notifications-weunica.firebaseapp.com",
+  projectId: "push-notifications-weunica",
+  storageBucket: "push-notifications-weunica.firebasestorage.app",
+  messagingSenderId: "1042180147223",
+  appId: "1:1042180147223:web:3d73406c082f45dcac3452"
+};
 
-// firebase.initializeApp(firebaseConfig);
-// const messaging = firebase.messaging();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const messaging = firebase.messaging();
 
 // messaging.onBackgroundMessage((payload) => {
 //   console.log('Received background message ', payload);
