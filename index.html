@@ -48,7 +48,7 @@
     
             // רישום ה-Service Worker
             if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
+                navigator.serviceWorker.register('sw.js', { type: 'module' }).then((registration) => {
                     console.log('Service Worker registered:', registration);
     
                     // קשר את Service Worker עם Firebase Messaging
