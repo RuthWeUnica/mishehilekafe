@@ -7,7 +7,7 @@
     <title>Home</title>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
-    <!-- <script type="module" src="script.js" defer></script> -->
+    <script type="module" src="script.js" defer></script>
 
 </head>
 
@@ -22,7 +22,7 @@
             // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
             import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-messaging.js";
-
+    
             // בקשת הרשאה להצגת הודעות
             Notification.requestPermission().then(permission => {
                 if (permission === 'granted') {
@@ -31,7 +31,7 @@
                     console.log('המשתמש לא נתן הרשאת Push');
                 }
             });
-
+    
             // הגדרות Firebase
             const firebaseConfig = {
                 apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
@@ -41,41 +41,27 @@
                 messagingSenderId: "1042180147223",
                 appId: "1:1042180147223:web:3d73406c082f45dcac3452"
             };
-
+    
             // אתחול Firebase
             const app = initializeApp(firebaseConfig);
             const messaging = getMessaging(app);
-
-            // רישום ה-Service Worker
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('sw.js', { type: 'module' }).then((registration) => {
-                    console.log('Service Worker registered:', registration);
-
-                    // קשר את Service Worker עם Firebase Messaging
-
-                }).catch((err) => {
-                    console.error('Service Worker registration failed:', err);
-                });
-            } else {
-                console.error('Service Workers are not supported in this browser.');
-            }
-
-            navigator.serviceWorker.ready.then(function (registration) {
-                // אחרי שה-Service Worker מוכן, בקש את ה-token
-                getToken(messaging, { vapidKey: "BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g" })
-                    .then((currentToken) => {
-                        if (currentToken) {
-                            console.log("currentToken", currentToken);
-                        } else {
-                            console.log('No registration token available. Request permission to generate one.');
-                        }
-                    }).catch((err) => {
-                        console.log('An error occurred while retrieving token. ', err);
-                    });
-            });
+    
+            // // רישום ה-Service Worker
+            // if ('serviceWorker' in navigator) {
+            //     navigator.serviceWorker.register('sw.js', { type: 'module' }).then((registration) => {
+            //         console.log('Service Worker registered:', registration);
+    
+            //         // קשר את Service Worker עם Firebase Messaging
+                    
+            //     }).catch((err) => {
+            //         console.error('Service Worker registration failed:', err);
+            //     });
+            // } else {
+            //     console.error('Service Workers are not supported in this browser.');
+            // }
         </script>
     </body>
-
+    
 </body>
 
 </html>
