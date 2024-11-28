@@ -1,4 +1,22 @@
-
+Notification.requestPermission().then(permission => {
+    if (permission === "granted") {
+      console.log("Notification permission granted.");
+      showNotification();
+  
+      // Additional logic for getting token or handling messages
+    } else {
+      console.log("Notification permission denied.");
+    }
+  });
+  
+  
+  function showNotification() {
+    let notificationOptions = {
+      body: 'TEST',
+    }
+    let notif = new Notification('קיבלת הודעה חדשה!', notificationOptions);
+  
+  }
 
 if ('serviceWorker' in navigator && 'PushManager' in window) {
     // window.addEventListener('load', () => {
