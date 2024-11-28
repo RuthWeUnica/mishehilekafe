@@ -50,70 +50,70 @@ const cachedAssets = [
 //   );
 // });
 
-self.addEventListener('install', function(event) {
-  console.log('Service Worker installing.');
-  event.waitUntil(
-      caches.open(cacheName).then(function(cache) {
-          return cache.addAll([
-              '/index.html',
-              '/style.css',
-              '/script.js'
-          ]);
-      })
-  );
-});
+// self.addEventListener('install', function(event) {
+//   console.log('Service Worker installing.');
+//   event.waitUntil(
+//       caches.open(cacheName).then(function(cache) {
+//           return cache.addAll([
+//               '/index.html',
+//               '/style.css',
+//               '/script.js'
+//           ]);
+//       })
+//   );
+// });
 
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(keys.map(key => {
-        if (key !== cacheName) {
-          return caches.delete(key);
-        }
-      }));
-    })
-  );
-});
+// self.addEventListener('activate', event => {
+//   event.waitUntil(
+//     caches.keys().then(keys => {
+//       return Promise.all(keys.map(key => {
+//         if (key !== cacheName) {
+//           return caches.delete(key);
+//         }
+//       }));
+//     })
+//   );
+// });
 
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        return response || fetchAndCache(event.request);
-      })
-  );
-});
+// self.addEventListener('fetch', event => {
+//   event.respondWith(
+//     caches.match(event.request)
+//       .then(response => {
+//         return response || fetchAndCache(event.request);
+//       })
+//   );
+// });
 
-function fetchAndCache(request) {
-  return fetch(request)
-    .then(response => {
-      // Check if we received a valid response
-      if (!response || response.status !== 200 || response.type !== 'basic') {
-        return response;
-      }
+// function fetchAndCache(request) {
+//   return fetch(request)
+//     .then(response => {
+//       // Check if we received a valid response
+//       if (!response || response.status !== 200 || response.type !== 'basic') {
+//         return response;
+//       }
 
-      const responseToCache = response.clone();
+//       const responseToCache = response.clone();
 
-      caches.open(cacheName)
-        .then(cache => {
-          cache.put(request, responseToCache);
-        });
+//       caches.open(cacheName)
+//         .then(cache => {
+//           cache.put(request, responseToCache);
+//         });
 
-      return response;
-    })
-    .catch(error => {
-      console.error('Error fetching and caching:', error);
-    });
-}
+//       return response;
+//     })
+//     .catch(error => {
+//       console.error('Error fetching and caching:', error);
+//     });
+// }
 
-self.addEventListener('push', function(event) {
-  const data = event.data.json();  // Assuming the server sends JSON
-  const options = {
-      body: data.body,
-      icon: 'icon.png',
-      badge: 'badge.png'
-  };
-  event.waitUntil(
-      self.registration.showNotification(data.title, options)
-  );
-});
+// self.addEventListener('push', function(event) {
+//   const data = event.data.json();  // Assuming the server sends JSON
+//   const options = {
+//       body: data.body,
+//       icon: 'icon.png',
+//       badge: 'badge.png'
+//   };
+//   event.waitUntil(
+//       self.registration.showNotification(data.title, options)
+//   );
+// });
