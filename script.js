@@ -11,15 +11,7 @@
 // }
 
 
-Notification.requestPermission().then(permission => {
-    if (permission === 'granted') {
-      console.log('הרשאת Push ניתנה');
-      
-    //   const messaging = getMessaging(app); // אתחול Firebase Messaging כאן
-    } else {
-      console.log('המשתמש לא נתן הרשאת Push');
-    }
-  });
+
   if ('serviceWorker' in navigator && 'PushManager' in window) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js', { type: 'module' })
