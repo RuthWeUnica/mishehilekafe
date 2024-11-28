@@ -3,25 +3,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-Notification.requestPermission().then(permission => {
-  if (permission === "granted") {
-    console.log("Notification permission granted.");
-    showNotification();
 
-    // Additional logic for getting token or handling messages
-  } else {
-    console.log("Notification permission denied.");
-  }
-});
-
-
-function showNotification() {
-  let notificationOptions = {
-    body: 'TEST',
-  }
-  let notif = new Notification('קיבלת הודעה חדשה!', notificationOptions);
-
-}
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
