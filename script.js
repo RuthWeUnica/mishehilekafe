@@ -14,10 +14,8 @@ function showNotification() {
       body: 'TEST',
       icon: '<>'
     }
-    let notif = new Notification('My New Notification', notificationOptions);
-    notif.onclick = () => {
-      console.log('Notification clicked');
-    }
+    let notif = new Notification('קיבלת הודעה חדשה!', notificationOptions);
+   
   }
 
 if ('serviceWorker' in navigator && 'PushManager' in window) {
