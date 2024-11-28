@@ -1,7 +1,7 @@
 
 
 if ('serviceWorker' in navigator && 'PushManager' in window) {
-    window.addEventListener('load', () => {
+    // window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js', { type: 'module' })
             .then(registration => {
                 console.log('Service Worker registered successfully: ', registration);
@@ -9,7 +9,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             .catch(error => {
                 console.log('Service Worker registration failed: ', error);
             });
-    });
+   // });
 } else {
     console.log('Push notifications are not supported in this browser.');
 }
