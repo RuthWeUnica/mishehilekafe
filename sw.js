@@ -1,38 +1,38 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";// TODO: Add SDKs for Firebase products that you want to use
-import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-messaging.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";// TODO: Add SDKs for Firebase products that you want to use
+// import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-messaging.js";
 
-// https://firebase.google.com/docs/web/setup#available-libraries
+// // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
-  authDomain: "push-notifications-weunica.firebaseapp.com",
-  projectId: "push-notifications-weunica",
-  storageBucket: "push-notifications-weunica.firebasestorage.app",
-  messagingSenderId: "1042180147223",
-  appId: "1:1042180147223:web:3d73406c082f45dcac3452"
-};
+// // Your web app's Firebase configuration
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
+//   authDomain: "push-notifications-weunica.firebaseapp.com",
+//   projectId: "push-notifications-weunica",
+//   storageBucket: "push-notifications-weunica.firebasestorage.app",
+//   messagingSenderId: "1042180147223",
+//   appId: "1:1042180147223:web:3d73406c082f45dcac3452"
+// };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
 
-const messaging = getMessaging(app);
+// const messaging = getMessaging(app);
 
-getToken(messaging, { vapidKey: "BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g" }).then((currentToken) => {
-  if (currentToken) {
-    console.log("currentToken",currentToken);
-    // Send the token to your server and update the UI if necessary
-    // ...
-  } else {
-    // Show permission request UI
-    console.log('No registration token available. Request permission to generate one.');
-    // ...
-  }
-}).catch((err) => {
-  console.log('An error occurred while retrieving token. ', err);
-  // ...
-});
+// getToken(messaging, { vapidKey: "BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g" }).then((currentToken) => {
+//   if (currentToken) {
+//     console.log("currentToken",currentToken);
+//     // Send the token to your server and update the UI if necessary
+//     // ...
+//   } else {
+//     // Show permission request UI
+//     console.log('No registration token available. Request permission to generate one.');
+//     // ...
+//   }
+// }).catch((err) => {
+//   console.log('An error occurred while retrieving token. ', err);
+//   // ...
+// });
 
 // messaging.onBackgroundMessage((payload) => {
 //   console.log('Received background message ', payload);
@@ -57,70 +57,70 @@ const cachedAssets = [
   // Add more paths to important assets, such as images, fonts, etc.
 ];
 
-// self.addEventListener('install', event => {
-//   event.waitUntil(
-//     caches.open(cacheName)
-//       .then(cache => {
-//         return cache.addAll(cachedAssets);
-//       })
-//   );
-// });
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(cacheName)
+      .then(cache => {
+        return cache.addAll(cachedAssets);
+      })
+  );
+});
 
-// self.addEventListener('install', function(event) {
-//   console.log('Service Worker installing.');
-//   event.waitUntil(
-//       caches.open(cacheName).then(function(cache) {
-//           return cache.addAll([
-//               '/index.html',
-//               '/style.css',
-//               '/script.js'
-//           ]);
-//       })
-//   );
-// });
+self.addEventListener('install', function(event) {
+  console.log('Service Worker installing.');
+  event.waitUntil(
+      caches.open(cacheName).then(function(cache) {
+          return cache.addAll([
+              '/index.html',
+              '/style.css',
+              '/script.js'
+          ]);
+      })
+  );
+});
 
-// self.addEventListener('activate', event => {
-//   event.waitUntil(
-//     caches.keys().then(keys => {
-//       return Promise.all(keys.map(key => {
-//         if (key !== cacheName) {
-//           return caches.delete(key);
-//         }
-//       }));
-//     })
-//   );
-// });
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(keys.map(key => {
+        if (key !== cacheName) {
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
+});
 
-// self.addEventListener('fetch', event => {
-//   event.respondWith(
-//     caches.match(event.request)
-//       .then(response => {
-//         return response || fetchAndCache(event.request);
-//       })
-//   );
-// });
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        return response || fetchAndCache(event.request);
+      })
+  );
+});
 
-// function fetchAndCache(request) {
-//   return fetch(request)
-//     .then(response => {
-//       // Check if we received a valid response
-//       if (!response || response.status !== 200 || response.type !== 'basic') {
-//         return response;
-//       }
+function fetchAndCache(request) {
+  return fetch(request)
+    .then(response => {
+      // Check if we received a valid response
+      if (!response || response.status !== 200 || response.type !== 'basic') {
+        return response;
+      }
 
-//       const responseToCache = response.clone();
+      const responseToCache = response.clone();
 
-//       caches.open(cacheName)
-//         .then(cache => {
-//           cache.put(request, responseToCache);
-//         });
+      caches.open(cacheName)
+        .then(cache => {
+          cache.put(request, responseToCache);
+        });
 
-//       return response;
-//     })
-//     .catch(error => {
-//       console.error('Error fetching and caching:', error);
-//     });
-// }
+      return response;
+    })
+    .catch(error => {
+      console.error('Error fetching and caching:', error);
+    });
+}
 
 // self.addEventListener('push', function(event) {
 //   const data = event.data.json();  // Assuming the server sends JSON
