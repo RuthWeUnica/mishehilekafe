@@ -1,23 +1,23 @@
 // Import the functions you need from the SDKs you need
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";// TODO: Add SDKs for Firebase products that you want to use
-// import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-messaging.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";// TODO: Add SDKs for Firebase products that you want to use
+import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-messaging.js";
 
-// // https://firebase.google.com/docs/web/setup#available-libraries
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
-//   authDomain: "push-notifications-weunica.firebaseapp.com",
-//   projectId: "push-notifications-weunica",
-//   storageBucket: "push-notifications-weunica.firebasestorage.app",
-//   messagingSenderId: "1042180147223",
-//   appId: "1:1042180147223:web:3d73406c082f45dcac3452"
-// };
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
+  authDomain: "push-notifications-weunica.firebaseapp.com",
+  projectId: "push-notifications-weunica",
+  storageBucket: "push-notifications-weunica.firebasestorage.app",
+  messagingSenderId: "1042180147223",
+  appId: "1:1042180147223:web:3d73406c082f45dcac3452"
+};
 
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-// const messaging = getMessaging(app);
+const messaging = getMessaging(app);
 
 // getToken(messaging, { vapidKey: "BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g" }).then((currentToken) => {
 //   if (currentToken) {
