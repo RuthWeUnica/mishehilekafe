@@ -11,8 +11,13 @@
             "sizes": "192x192",
             "type": "image/svg"
         }, {
-            "src": "icons/singleCoffeeCup.png",
+            "src": "singleCoffeeCup.png",
             "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "singleCoffeeCup_copy.png",
+            "sizes": "64x64",
             "type": "image/png"
         }
        
