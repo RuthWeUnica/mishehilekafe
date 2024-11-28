@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";// TODO: Add SDKs for Firebase products that you want to use
-import { getMessaging } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-messaging.js";
+import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-messaging.js";
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,6 +17,21 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
+
+getToken(messaging, { vapidKey: "BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g" }).then((currentToken) => {
+  if (currentToken) {
+    console.log("currentToken",currentToken);
+    // Send the token to your server and update the UI if necessary
+    // ...
+  } else {
+    // Show permission request UI
+    console.log('No registration token available. Request permission to generate one.');
+    // ...
+  }
+}).catch((err) => {
+  console.log('An error occurred while retrieving token. ', err);
+  // ...
+});
 
 // messaging.onBackgroundMessage((payload) => {
 //   console.log('Received background message ', payload);
