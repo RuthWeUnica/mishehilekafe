@@ -37,6 +37,19 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 
                 const messaging = getMessaging(app);
+                getToken(messaging, {
+                    vapidKey: "BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g",
+                    serviceWorkerRegistration: registration
+                }).then((currentToken) => {
+                    if (currentToken) {
+                        console.log('Token:', currentToken);
+                        // שלחי את הטוקן לשרת שלך (אם נדרש)
+                    } else {
+                        console.log('No registration token available.');
+                    }
+                }).catch((err) => {
+                    console.error('An error occurred while retrieving token:', err);
+                });
             })
             .catch(error => {
                 console.log('Service Worker registration failed: ', error);
