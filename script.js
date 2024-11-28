@@ -23,7 +23,14 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 } else {
     console.log('Push notifications are not supported in this browser.');
 }
-
+Notification.requestPermission().then(permission => {
+    if (permission === 'granted') {
+      console.log('הרשאת Push ניתנה');
+    //   const messaging = getMessaging(app); // אתחול Firebase Messaging כאן
+    } else {
+      console.log('המשתמש לא נתן הרשאת Push');
+    }
+  });
 
 
 
