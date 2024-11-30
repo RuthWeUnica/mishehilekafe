@@ -17,18 +17,18 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
+// const messaging = getMessaging(app);
 
-messaging.onBackgroundMessage((payload) => {
-  console.log('Received background message ', payload);
-  const notificationTitle = payload.notification.title;
-  const notificationOptions = {
-      body: payload.notification.body,
-      icon: payload.notification.icon
-  };
+// messaging.onBackgroundMessage((payload) => {
+//   console.log('Received background message ', payload);
+//   const notificationTitle = payload.notification.title;
+//   const notificationOptions = {
+//       body: payload.notification.body,
+//       icon: payload.notification.icon
+//   };
 
-  self.registration.showNotification(notificationTitle, notificationOptions);
-});
+//   self.registration.showNotification(notificationTitle, notificationOptions);
+// });
 
 const cacheName = 'your-website-cache-v1'; // Update the cache version
 
