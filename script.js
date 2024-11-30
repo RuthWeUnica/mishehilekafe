@@ -13,6 +13,7 @@ Notification.requestPermission().then(permission => {
   function showNotification() {
     let notificationOptions = {
       body: 'TEST',
+      icon: '/singleCoffeeCup.png'
     }
     let notif = new Notification('קיבלת הודעה חדשה!', notificationOptions);
   
@@ -31,6 +32,26 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 } else {
     console.log('Push notifications are not supported in this browser.');
 }
+
+messaging.getToken({ vapidKey: 'BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g' }).then((currentToken) => {
+    if (currentToken) {
+      // Send the token to your server and update the UI if necessary
+      // ...
+      console.log("currentToken",currentToken);
+      return currentToken;
+    } else {
+      // Show permission request UI
+      console.log('No registration token available. Request permission to generate one.');
+      // ...
+    }
+  }).catch((err) => {
+    console.log('An error occurred while retrieving token. ', err);
+    // ...
+  });
+  messaging.onMessage(payload => {
+    console.log('Message received. ', payload);
+    // ...
+  });
 
 
 

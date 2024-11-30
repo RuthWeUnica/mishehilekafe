@@ -7,7 +7,6 @@
     <title>Home</title>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
-    <script type="module" src="script.js" defer></script>
 
 </head>
 
@@ -16,13 +15,8 @@
         <a href="https://www.medical-rights.co.il">Go to site!</a>
     </div> -->
     <iframe src="https://www.mishehilekafe.co.il/"></iframe>
-
-    
-    
-</body>
-
-</html>
-<!-- <script type="module">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js"></script>
+    <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
         import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js";
 
@@ -37,19 +31,13 @@
         };
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const messaging = getMessaging(app);
+        const messaging = getMessaging();
 
-        Notification.requestPermission().then(permission => {
-            if (permission === "granted") {
-                console.log("Notification permission granted.");
-                // Additional logic for getting token or handling messages
-            } else {
-                console.log("Notification permission denied.");
-            }
-        });
 
-        // onMessage(messaging, (payload) => {
-        //     console.log("Received push notification: ", payload);
-        //     // Handle the incoming push notification here
-        // });
-    </script> -->
+    </script>
+    <script type="module" src="script.js" defer></script>
+
+
+</body>
+
+</html>
