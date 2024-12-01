@@ -1,28 +1,28 @@
-// Import Firebase libraries
-importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js');
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getMessaging, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-sw.js";
 
 // Firebase configuration
-firebase.initializeApp({
+const firebaseConfig = {
   apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
   authDomain: "push-notifications-weunica.firebaseapp.com",
   projectId: "push-notifications-weunica",
   storageBucket: "push-notifications-weunica.firebasestorage.app",
   messagingSenderId: "1042180147223",
   appId: "1:1042180147223:web:3d73406c082f45dcac3452"
-});
+};
 
-// Initialize Firebase Messaging
-const messaging = firebase.messaging();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const messaging = getMessaging(app);
 
-// Optional: Handle background messages
-messaging.onBackgroundMessage(function(payload) {
-  console.log('[firebase-messaging-sw.js] Received background message:', payload);
+// Handle background messages
+onBackgroundMessage(messaging, (payload) => {
+  console.log('[firebase-messaging-sw.js] Received background message ', payload);
   const notificationTitle = payload.notification.title;
   const notificationOptions = {
     body: payload.notification.body,
     icon: payload.notification.icon
   };
 
-  return self.registration.showNotification(notificationTitle, notificationOptions);
+  self.registration.showNotification(notificationTitle, notificationOptions);
 });
