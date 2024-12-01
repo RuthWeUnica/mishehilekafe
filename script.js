@@ -1,26 +1,26 @@
 Notification.requestPermission().then(permission => {
     if (permission === "granted") {
-      console.log("Notification permission granted.");
-      showNotification();
-  
-      // Additional logic for getting token or handling messages
+        console.log("Notification permission granted.");
+        showNotification();
+
+        // Additional logic for getting token or handling messages
     } else {
-      console.log("Notification permission denied.");
+        console.log("Notification permission denied.");
     }
-  });
-  
-  
-  function showNotification() {
+});
+
+
+function showNotification() {
     let notificationOptions = {
-      body: 'TEST',
-      icon: '/singleCoffeeCup.png'
+        body: 'TEST',
+        icon: '/singleCoffeeCup.png'
     }
     let notif = new Notification('קיבלת הודעה חדשה!', notificationOptions);
-  
-  }
+
+}
 
 if ('serviceWorker' in navigator && 'PushManager' in window) {
-     window.addEventListener('load', () => {
+    window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js', { type: 'module' })
             .then(registration => {
                 console.log('Service Worker registered successfully: ', registration);
@@ -28,10 +28,22 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             .catch(error => {
                 console.log('Service Worker registration failed: ', error);
             });
+        navigator.serviceWorker
+            .register('/firebase-messaging-sw.js', { type: 'module' })
+            .then((registration) => {
+                console.log('Firebase Messaging Service Worker registered successfully:', registration);
+            })
+            .catch((err) => {
+                console.error('Firebase Messaging Service Worker registration failed:', err);
+            });
+
     });
+
 } else {
     console.log('Push notifications are not supported in this browser.');
 }
+
+
 
 // messaging.getToken({ vapidKey: 'BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g' }).then((currentToken) => {
 //     if (currentToken) {
