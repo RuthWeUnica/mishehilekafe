@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getMessaging, onBackgroundMessage, getToken } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-sw.js";
+import { getMessaging, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-sw.js";
 
 
 console.log("firebase-messaging-sw.js running...");
