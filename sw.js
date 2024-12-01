@@ -52,18 +52,18 @@ self.addEventListener('install', event => {
   );
 });
 
-self.addEventListener('install', function (event) {
-  console.log('Service Worker installing.');
-  event.waitUntil(
-    caches.open(cacheName).then(function (cache) {
-      return cache.addAll([
-        '/index.html',
-        '/style.css',
-        '/script.js'
-      ]);
-    })
-  );
-});
+// self.addEventListener('install', function (event) {
+//   console.log('Service Worker installing.');
+//   event.waitUntil(
+//     caches.open(cacheName).then(function (cache) {
+//       return cache.addAll([
+//         '/index.html',
+//         '/style.css',
+//         '/script.js'
+//       ]);
+//     })
+//   );
+// });
 
 self.addEventListener('activate', event => {
   event.waitUntil(
