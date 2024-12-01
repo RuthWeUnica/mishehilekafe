@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getMessaging, onBackgroundMessage, getToken } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-sw.js";
 
+
+console.log("firebase-messaging-sw.js running...");
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
@@ -12,8 +14,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
+const app = await initializeApp(firebaseConfig);
+const messaging = await getMessaging(app);
 
 // Handle background messages
 onBackgroundMessage(messaging, (payload) => {
