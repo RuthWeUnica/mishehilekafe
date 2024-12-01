@@ -1,7 +1,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import {getMessaging} from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js'
+import { getMessaging } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,7 +17,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const messaging = getMessaging(app);
+const messaging = getMessaging(app);
 
 // messaging.onBackgroundMessage((payload) => {
 //   console.log('Received background message ', payload);
@@ -44,6 +44,7 @@ const cachedAssets = [
 ];
 
 self.addEventListener('install', event => {
+  console.log('Service Worker installing.');
   event.waitUntil(
     caches.open(cacheName)
       .then(cache => {
@@ -66,6 +67,7 @@ self.addEventListener('install', event => {
 // });
 
 self.addEventListener('activate', event => {
+  console.log("activate")
   event.waitUntil(
     caches.keys().then(keys => {
       return Promise.all(keys.map(key => {
