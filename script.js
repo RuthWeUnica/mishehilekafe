@@ -29,7 +29,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
                 console.log('Service Worker registration failed: ', error);
             });
         navigator.serviceWorker
-            .register('/firebase-messaging-sw.js', { type: 'module' })
+            .register('firebase-messaging-sw.js', { type: 'module' })
             .then((registration) => {
                 console.log('Firebase Messaging Service Worker registered successfully:', registration);
             })
