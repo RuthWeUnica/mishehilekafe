@@ -14,8 +14,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = await initializeApp(firebaseConfig);
-const messaging = await getMessaging(app);
+const app = initializeApp(firebaseConfig);
+const messaging = getMessaging(app);
 
 // Handle background messages
 onBackgroundMessage(messaging, (payload) => {
@@ -44,18 +44,18 @@ onBackgroundMessage(messaging, (payload) => {
 //   // ...
 // });
 
-getToken(messaging, { vapidKey: 'BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g' }).then((currentToken) => {
-  if (currentToken) {
-    // Send the token to your server and update the UI if necessary
-    // ...
-    console.log("current token", currentToken);
+// getToken(messaging, { vapidKey: 'BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g' }).then((currentToken) => {
+//   if (currentToken) {
+//     // Send the token to your server and update the UI if necessary
+//     // ...
+//     console.log("current token", currentToken);
 
-  } else {
-    // Show permission request UI
-    console.log('No registration token available. Request permission to generate one.');
-    // ...
-  }
-}).catch((err) => {
-  console.log('An error occurred while retrieving token. ', err);
-  // ...
-});
+//   } else {
+//     // Show permission request UI
+//     console.log('No registration token available. Request permission to generate one.');
+//     // ...
+//   }
+// }).catch((err) => {
+//   console.log('An error occurred while retrieving token. ', err);
+//   // ...
+// });
