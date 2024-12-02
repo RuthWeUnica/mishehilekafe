@@ -50,7 +50,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 // Function to get the FCM Token
 function getFCMToken() {
-    const vapidKey = "YOUR_PUBLIC_VAPID_KEY"; // Replace with your VAPID Key from Firebase Console
+    const vapidKey = "BKJdFLRgiRiRRNcNlQvRUDv15OIPDtaeXrIfeUClN9whgM1E1WIMt4AZlP8SPeV9vF1R6I3EZGO_OWyHzJTw73g"; // Replace with your VAPID Key from Firebase Console
     getToken(messaging, { vapidKey: vapidKey })
         .then((currentToken) => {
             if (currentToken) {
