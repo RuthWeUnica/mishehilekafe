@@ -47,7 +47,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 window.addEventListener("message",e=>{
     console.log("message from wix",e);
 })
-document.getElementById("wix-iframe").contentWindow.postMessage("send message to wix from site!");
+// document.getElementById("wix-iframe").contentWindow.postMessage("send message to wix from site!");
 
 
 
