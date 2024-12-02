@@ -88,6 +88,10 @@ self.addEventListener('fetch', event => {
   );
 });
 
+self.addEventListener("message",e=>{
+  console.log("message from wix",e);
+})
+
 function fetchAndCache(request) {
   return fetch(request)
     .then(response => {
