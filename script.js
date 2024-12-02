@@ -2,8 +2,6 @@ Notification.requestPermission().then(permission => {
     if (permission === "granted") {
         console.log("Notification permission granted.");
         showNotification();
-
-        // Additional logic for getting token or handling messages
     } else {
         console.log("Notification permission denied.");
     }

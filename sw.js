@@ -1,35 +1,3 @@
-
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-// import { getMessaging } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js'
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
-
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
-//   authDomain: "push-notifications-weunica.firebaseapp.com",
-//   projectId: "push-notifications-weunica",
-//   storageBucket: "push-notifications-weunica.firebasestorage.app",
-//   messagingSenderId: "1042180147223",
-//   appId: "1:1042180147223:web:3d73406c082f45dcac3452"
-// };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const messaging = getMessaging(app);
-
-// messaging.onBackgroundMessage((payload) => {
-//   console.log('Received background message ', payload);
-//   const notificationTitle = payload.notification.title;
-//   const notificationOptions = {
-//       body: payload.notification.body,
-//       icon: payload.notification.icon
-//   };
-
-//   self.registration.showNotification(notificationTitle, notificationOptions);
-// });
-
 const cacheName = 'your-website-cache-v1'; // Update the cache version
 
 const cachedAssets = [
