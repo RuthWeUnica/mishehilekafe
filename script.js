@@ -15,6 +15,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 
+console.log("messeging in script.js",messaging);
+
 // Request Notification Permission
 Notification.requestPermission().then(permission => {
   if (permission === "granted") {
@@ -54,6 +56,7 @@ function getFCMToken() {
   navigator.serviceWorker.getRegistration().then(registration => {
     console.log("getRegisration",registration);
     getToken(messaging, { vapidKey: vapidKey, 
+        serviceWorkerRegistration: registration
         // serviceWorkerRegistration: registration 
     })
       .then((currentToken) => {
