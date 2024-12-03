@@ -89,14 +89,11 @@ onMessage(messaging, (payload) => {
 
 // Communication with iframe
 window.addEventListener("message", e => {
-    console.log("Message from Wix iframe:", e);
     if (e.data && e.data.memberId) {
         console.log("Received memberId from Wix iframe:", e.data.memberId);
         memberId = e.data.memberId;
         updateDeviceToken(memberId, deviceToken);
-    } else {
-        console.log("Received message, but no memberId found:", e.data);
-    }
+    } 
 });
 
 async function updateDeviceToken(memberId, deviceToken) {
