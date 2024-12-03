@@ -103,8 +103,8 @@ async function updateDeviceToken(memberId, deviceToken) {
     console.log("update device token in wix collection", memberId, deviceToken);
     if (!memberId || !deviceToken)
         return;
-    const url = 'https://www.mishehilekafe.co.il/_functions/updateDeviceToken';
-    // const url = 'https://www.mishehilekafe.co.il/_functions/myFunction';
+    // const url = 'https://www.mishehilekafe.co.il/_functions/updateDeviceToken';
+    const url = 'https://www.mishehilekafe.co.il/_functions/myFunction';
     const data = {
         memberId: memberId,
         deviceToken: deviceToken,
