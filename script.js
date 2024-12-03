@@ -111,7 +111,7 @@ async function updateDeviceToken(memberId, deviceToken) {
 
     try {
         const response = await fetch(url, {
-            method: 'POST',
+            method: 'OPTIONS',
             headers: {
                 'Content-Type': 'application/json',
             },
