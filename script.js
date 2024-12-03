@@ -100,6 +100,7 @@ window.addEventListener("message", e => {
 });
 
 async function updateDeviceToken(memberId, deviceToken) {
+    console.log("update device token in wix collection",memberId,deviceToken);
     if (!memberId || !deviceToken)
         return;
     const url = 'https://www.mishehilekafe.co.il/_functions/updateDeviceToken';
