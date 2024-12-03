@@ -24,7 +24,7 @@ console.log("messeging in script.js", messaging);
 Notification.requestPermission().then(permission => {
     if (permission === "granted") {
         console.log("Notification permission granted.");
-        getFCMToken();
+        // getFCMToken();
     } else {
         console.log("Notification permission denied.");
     }
@@ -44,7 +44,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         navigator.serviceWorker.register('firebase-messaging-sw.js', { type: 'module' })
             .then((registration) => {
                 console.log('Firebase Messaging Service Worker registered successfully:', registration);
-                getFCMToken();
+                // getFCMToken();
             })
             .catch((err) => {
                 console.error('Firebase Messaging Service Worker registration failed:', err);
@@ -92,7 +92,7 @@ window.addEventListener("message", e => {
     if (e.data && e.data.memberId) {
         console.log("Received memberId from Wix iframe:", e.data.memberId);
         memberId = e.data.memberId;
-        updateDeviceToken(memberId, deviceToken);
+        // updateDeviceToken(memberId, deviceToken);
     } else {
         console.log("Received message, but no memberId found:", e.data);
     }
