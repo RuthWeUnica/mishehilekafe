@@ -110,7 +110,7 @@ async function updateDeviceToken(memberId, deviceToken) {
 
     try {
         const response = await fetch(url, {
-            method: 'POST',
+            method: 'OPTIONS',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -121,8 +121,8 @@ async function updateDeviceToken(memberId, deviceToken) {
             throw new Error(`Server error: ${response.status}`);
         }
 
-        const result = await response.json();
-        console.log('Response from server:', result);
+        // const result = await response.json();
+        console.log('Response from server:', response);
     } catch (error) {
         console.error('Error updating device token:', error);
     }
