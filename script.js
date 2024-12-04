@@ -89,6 +89,7 @@ onMessage(messaging, (payload) => {
 
 // Communication with iframe
 window.addEventListener("message", e => {
+
     if (e.data && e.data.memberId) {
         console.log("Received memberId from Wix iframe:", e.data.memberId);
         memberId = e.data.memberId;
@@ -109,7 +110,7 @@ async function updateDeviceToken(memberId, deviceToken) {
 
     try {
         const response = await fetch(url, {
-            method: 'OPTIONS',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
