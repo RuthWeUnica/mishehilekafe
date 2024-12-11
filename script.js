@@ -53,7 +53,8 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 } else {
     console.log('Push notifications are not supported in this browser.');
 }
-window.addEventListener('fetch', function(event) {
+if ('serviceWorker' in navigator){
+
   console.log("tryyyyyyyyyyyyyyyyyyyyyy");
     // const requestUrl = new URL(event.request.url);
 
@@ -72,7 +73,7 @@ window.addEventListener('fetch', function(event) {
     //     // אם זה לא ה-URL שאנחנו רוצים לתפוס, מבצע את הבקשה כרגיל
     //     event.respondWith(fetch(event.request));
     // }
-});
+}
 // Function to get the FCM Token
 function getFCMToken() {
     console.log("----> getFCMToken");
