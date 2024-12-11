@@ -33,6 +33,7 @@ Notification.requestPermission().then(permission => {
 const iframe = document.getElementById('wix-iframe');
 
 iframe.addEventListener('load', () => {
+    console.log("try!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     const iframeWindow = iframe.contentWindow;
 
     // שליחה ל-Service Worker כאשר ה-iframe מנסה לטעון כתובת חדשה
