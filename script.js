@@ -97,6 +97,24 @@ window.addEventListener("message", e => {
     } 
 });
 
+// JavaScript בדף הראשי
+const iframe = document.getElementById('wix-iframe');
+
+iframe.addEventListener('load', () => {
+    const iframeWindow = iframe.contentWindow;
+    iframeWindow.addEventListener('beforeunload', () => {
+        console.log('ה-iframe מנסה לטעון URL חדש:', iframeWindow.location.href);
+        
+        // שלח הודעה ל-Service Worker
+        if (navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({
+                type: 'iframe-navigation',
+                url: iframeWindow.location.href
+            });
+        }
+    });
+});
+
 async function updateDeviceToken(memberId, deviceToken) {
     console.log("update device token in wix collection", memberId, deviceToken);
     if (!memberId || !deviceToken)
