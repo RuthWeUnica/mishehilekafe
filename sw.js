@@ -81,7 +81,22 @@ function fetchAndCache(request) {
       console.error('Error fetching and caching:', error);
     });
 }
-
+self.addEventListener('fetch', (event) => {
+    const url = new URL(event.request.url);
+    // בדוק אם הבקשה מגיעה מ-iframe
+    if (event.request.mode === 'navigate' || event.request.destination === 'iframe') {
+        // בדוק אם הקישור הוא הקישור שצריך לנתב מחדש
+        if (url.href === 'https://ruthweunica.github.io/mishehilekafe/') {
+            // שנה את הקישור
+            const newUrl = 'https://www.mishehilekafe.co.il/';
+            // בצע את הבקשה מחדש עם הקישור החדש
+            event.respondWith(fetch(new Request(newUrl, event.request)));
+            return;
+        }
+    }
+    // עבור כל שאר הבקשות, המשך רגיל
+    event.respondWith(fetch(event.request));
+});
 // self.addEventListener('push', function(event) {
 //   const data = event.data.json();  // Assuming the server sends JSON
 //   const options = {
