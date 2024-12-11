@@ -83,13 +83,13 @@ function fetchAndCache(request) {
 }
 self.addEventListener('fetch', (event) => {
     const url = new URL(event.request.url);
-    // בדוק אם הבקשה מגיעה מ-iframe
-    if (event.request.mode === 'navigate' || event.request.destination === 'iframe') {
-        // בדוק אם הקישור הוא הקישור שצריך לנתב מחדש
+    // בדוק אם הבקשה מגיעה מ-iframe בלבד
+    if (event.request.destination === 'iframe') {
+        // בדוק אם ה-URL הוא ה-URL שצריך לשנות
         if (url.href === 'https://ruthweunica.github.io/mishehilekafe/') {
-            // שנה את הקישור
+            // שנה את ה-URL
             const newUrl = 'https://www.mishehilekafe.co.il/';
-            // בצע את הבקשה מחדש עם הקישור החדש
+            // בצע Rewrite
             event.respondWith(fetch(new Request(newUrl, event.request)));
             return;
         }
