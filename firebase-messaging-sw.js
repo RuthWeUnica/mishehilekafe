@@ -5,25 +5,7 @@ import { getMessaging, onBackgroundMessage } from "https://www.gstatic.com/fireb
 console.log("firebase-messaging-sw.js running...");
 // service-worker.js
 // service-worker.js
-self.addEventListener('message', (event) => {
-    if (event.data.type === 'navigate-iframe') {
-        const iframeUrl = event.data.url;
-        console.log('ה-iframe מנסה לטעון את ה-URL:', iframeUrl);
-        
-        // כאן אתה יכול להחליט אם לנתב את ה-iframe לכתובת חדשה או לא
-        const newUrl = 'https://www.mishehilekafe.co.il'; // דוגמה להחלפת כתובת
 
-        // בדוק אם יש צורך לעקוב אחרי ה-URL הנוכחי ולבצע פעולה
-        self.clients.matchAll().then(clients => {
-            clients.forEach(client => {
-                client.postMessage({
-                    type: 'redirect-iframe',
-                    url: newUrl
-                });
-            });
-        });
-    }
-});
 
 
 // Firebase configuration
