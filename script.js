@@ -32,7 +32,7 @@ Notification.requestPermission().then(permission => {
 
 // Register Service Workers
 if ('serviceWorker' in navigator && 'PushManager' in window) {
-    window.addEventListener('fetch', function(event) {
+    window.addEventListener('fetch', (event)=> {
         console.log("try!!!!!!!!!!!!!!!!!!!!!!1");
     // const requestUrl = new URL(event.request.url);
 
@@ -51,6 +51,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     //     // אם זה לא ה-URL שאנחנו רוצים לתפוס, מבצע את הבקשה כרגיל
     //     event.respondWith(fetch(event.request));
     // }
+    }
 });
     
     window.addEventListener('load', () => {
