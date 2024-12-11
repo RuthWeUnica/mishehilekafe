@@ -46,6 +46,15 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             .then((registration) => {
                 console.log('Firebase Messaging Service Worker registered successfully:', registration);
                 getFCMToken();
+                 // האזן להודעות מ-Service Worker
+         navigator.serviceWorker.addEventListener('message', function(event) {
+        if (event.data.type === 'redirect-iframe') {
+            // עדכן את ה-iframe לכתובת החדשה
+            const iframe = document.getElementById('wix-iframe');
+            iframe.src = event.data.url; // שינוי ה-src לכתובת החדשה
+            console.log('ה-iframe מנווט לכתובת חדשה:', event.data.url);
+        }
+    });
             })
             .catch((err) => {
                 console.error('Firebase Messaging Service Worker registration failed:', err);
@@ -116,24 +125,7 @@ iframe.addEventListener('load', () => {
         }
     });
 });
-// JavaScript בצד הלקוח (דף שמכיל את ה-iframe)
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('firebase-messaging-sw.js', { type: 'module' }).then(function(registration) {
-        console.log('Service Worker רשום בהצלחה:', registration);
-    }).catch(function(error) {
-        console.log('שגיאה בהרשמת ה-Service Worker:', error);
-    });
 
-    // האזן להודעות מ-Service Worker
-    navigator.serviceWorker.addEventListener('message', function(event) {
-        if (event.data.type === 'redirect-iframe') {
-            // עדכן את ה-iframe לכתובת החדשה
-            const iframe = document.getElementById('wix-iframe');
-            iframe.src = event.data.url; // שינוי ה-src לכתובת החדשה
-            console.log('ה-iframe מנווט לכתובת חדשה:', event.data.url);
-        }
-    });
-}
 
 
 
