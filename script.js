@@ -97,6 +97,44 @@ window.addEventListener("message", e => {
         updateDeviceToken(memberId, deviceToken);
     } 
 });
+// JavaScript בצד הלקוח (ב-d0ף שמכיל את ה-iframe)
+const iframe = document.getElementById('wix-iframe');
+
+iframe.addEventListener('load', () => {
+    const iframeWindow = iframe.contentWindow;
+    
+    // שליחה לדף הראשי על ה-URL של ה-iframe
+    iframeWindow.addEventListener('beforeunload', function () {
+        console.log('ה-iframe מנסה לטעון כתובת חדשה:', iframeWindow.location.href);
+        
+        // שלח לדף הראשי את המידע של ה-URL שניסה ה-iframe לטעון
+        if (navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({
+                type: 'navigate-iframe',
+                url: iframeWindow.location.href
+            });
+        }
+    });
+});
+// JavaScript בצד הלקוח (דף שמכיל את ה-iframe)
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+        console.log('Service Worker רשום בהצלחה:', registration);
+    }).catch(function(error) {
+        console.log('שגיאה בהרשמת ה-Service Worker:', error);
+    });
+
+    // האזן להודעות מ-Service Worker
+    navigator.serviceWorker.addEventListener('message', function(event) {
+        if (event.data.type === 'redirect-iframe') {
+            // עדכן את ה-iframe לכתובת החדשה
+            const iframe = document.getElementById('wix-iframe');
+            iframe.src = event.data.url; // שינוי ה-src לכתובת החדשה
+            console.log('ה-iframe מנווט לכתובת חדשה:', event.data.url);
+        }
+    });
+}
+
 
 
 async function updateDeviceToken(memberId, deviceToken) {
