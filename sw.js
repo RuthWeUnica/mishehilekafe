@@ -47,21 +47,21 @@ self.addEventListener('activate', event => {
   );
 });
 
-// self.addEventListener('fetch', event => {
-//   console.log("come into!!!!!!!!!!!!!!!!!!!!!!!");
+self.addEventListener('fetch', event => {
+  console.log("come into!!!!!!!!!!!!!!!!!!!!!!!");
   
 
-//   event.respondWith(
-//     caches.match(event.request)
-//       .then(response => {
-//         return response || fetchAndCache(event.request);
-//       })
-//   );
-// });
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        return response || fetchAndCache(event.request);
+      })
+  );
+});
 
-// self.addEventListener("message",e=>{
-//   console.log("message from wix",e);
-// })
+self.addEventListener("message",e=>{
+  console.log("message from wix",e);
+})
 
 function fetchAndCache(request) {
   return fetch(request)
