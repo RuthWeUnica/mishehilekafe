@@ -3,38 +3,8 @@ import { getMessaging, onBackgroundMessage } from "https://www.gstatic.com/fireb
 
 
 console.log("firebase-messaging-sw.js running...");
-self.addEventListener('fetch', event => {
-  console.log("come into!!!!!!!!!!!!!!!!!!!!!!!");
-   const url = new URL(event.request.url);
-    console.log('Handling fetch event for:', url.href);
-    // בדוק אם הבקשה מגיעה מתוך iframe בלבד
-    if (event.request.destination === 'iframe') {
-        console.log('Request is from an iframe');
-        // בדוק אם הקישור הוא הקישור המקורי
-        if (url.href === 'https://ruthweunica.github.io/mishehilekafe/') {
-            console.log('Intercepting request and redirecting');
-            // שנה את הכתובת
-            const newUrl = 'https://www.mishehilekafe.co.il/';
-            event.respondWith(
-                fetch(newUrl).catch((error) => {
-                    console.error('Fetch failed for:', newUrl, error);
-                    return new Response('Failed to fetch new URL', { status: 500 });
-                })
-            );
-            return;
-        }
-    }
-    console.log('Proceeding with original request');
-    event.respondWith(fetch(event.request));
 
-  
-  // event.respondWith(
-  //   caches.match(event.request)
-  //     .then(response => {
-  //       return response || fetchAndCache(event.request);
-  //     })
-  // );
-});
+
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
