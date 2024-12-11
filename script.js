@@ -118,7 +118,7 @@ iframe.addEventListener('load', () => {
 });
 // JavaScript בצד הלקוח (דף שמכיל את ה-iframe)
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+    navigator.serviceWorker.register('firebase-messaging-sw.js', { type: 'module' }).then(function(registration) {
         console.log('Service Worker רשום בהצלחה:', registration);
     }).catch(function(error) {
         console.log('שגיאה בהרשמת ה-Service Worker:', error);
