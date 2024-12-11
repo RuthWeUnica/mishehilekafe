@@ -29,6 +29,35 @@ Notification.requestPermission().then(permission => {
         console.log("Notification permission denied.");
     }
 });
+// האזנה לטעינת ה-iframe
+const iframe = document.getElementById('wix-iframe');
+
+iframe.addEventListener('load', () => {
+    const iframeWindow = iframe.contentWindow;
+
+    // שליחה ל-Service Worker כאשר ה-iframe מנסה לטעון כתובת חדשה
+    iframeWindow.addEventListener('beforeunload', function () {
+        console.log('ה-iframe מנסה לטעון כתובת חדשה:', iframeWindow.location.href);
+
+        // שלח לדף הראשי את המידע של ה-URL שניסה ה-iframe לטעון
+        if (navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({
+                type: 'navigate-iframe',
+                url: iframeWindow.location.href
+            });
+        }
+    });
+});
+
+// האזנה להודעות מה-Service Worker
+navigator.serviceWorker.addEventListener('message', function(event) {
+    if (event.data.type === 'redirect-iframe') {
+        // עדכון ה-src של ה-iframe לכתובת החדשה
+        const iframe = document.getElementById('wix-iframe');
+        iframe.src = event.data.url; // עדכון ה-src לכתובת החדשה
+        console.log('ה-iframe מנווט לכתובת חדשה:', event.data.url);
+    }
+});
 
 // Register Service Workers
 if ('serviceWorker' in navigator && 'PushManager' in window) {
@@ -131,28 +160,6 @@ async function updateDeviceToken(memberId, deviceToken) {
         console.error('Error updating device token:', error);
     }
 }
-// service-worker.js
-self.addEventListener('message', (event) => {
-    if (event.data.type === 'navigate-iframe') {
-        const requestedUrl = event.data.url;
-        console.log('ה-iframe מנסה לטעון את ה-URL:', requestedUrl);
-
-        // כאן תוכל לשנות את ה-URL אם יש צורך
-        // לדוגמה, אם ה-iframe מנסה לגשת ל-URL מסויים, אתה יכול לשנות אותו
-        let newUrl = requestedUrl;
-
-        // שינויים ב-URL (לפי הצורך שלך)
-        if (newUrl.includes('mishehilekafe')) {
-            newUrl = 'https://new-website-url.com'; // דוגמה לשינוי ה-URL
-        }
-
-        // שלח הודעה לדף הראשי עם ה-URL החדש
-        event.ports[0].postMessage({
-            type: 'redirect-iframe',
-            url: newUrl
-        });
-    }
-});
 
 
 
