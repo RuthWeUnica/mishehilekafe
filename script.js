@@ -131,5 +131,28 @@ async function updateDeviceToken(memberId, deviceToken) {
         console.error('Error updating device token:', error);
     }
 }
+// service-worker.js
+self.addEventListener('message', (event) => {
+    if (event.data.type === 'navigate-iframe') {
+        const requestedUrl = event.data.url;
+        console.log('ה-iframe מנסה לטעון את ה-URL:', requestedUrl);
+
+        // כאן תוכל לשנות את ה-URL אם יש צורך
+        // לדוגמה, אם ה-iframe מנסה לגשת ל-URL מסויים, אתה יכול לשנות אותו
+        let newUrl = requestedUrl;
+
+        // שינויים ב-URL (לפי הצורך שלך)
+        if (newUrl.includes('mishehilekafe')) {
+            newUrl = 'https://new-website-url.com'; // דוגמה לשינוי ה-URL
+        }
+
+        // שלח הודעה לדף הראשי עם ה-URL החדש
+        event.ports[0].postMessage({
+            type: 'redirect-iframe',
+            url: newUrl
+        });
+    }
+});
+
 
 
