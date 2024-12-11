@@ -83,18 +83,25 @@ function fetchAndCache(request) {
 }
 self.addEventListener('fetch', (event) => {
     const url = new URL(event.request.url);
-    // בדוק אם הבקשה מגיעה מ-iframe בלבד
+    console.log('Handling fetch event for:', url.href);
+    // בדוק אם הבקשה מגיעה מתוך iframe בלבד
     if (event.request.destination === 'iframe') {
-        // בדוק אם ה-URL הוא ה-URL שצריך לשנות
+        console.log('Request is from an iframe');
+        // בדוק אם הקישור הוא הקישור המקורי
         if (url.href === 'https://ruthweunica.github.io/mishehilekafe/') {
-            // שנה את ה-URL
+            console.log('Intercepting request and redirecting');
+            // שנה את הכתובת
             const newUrl = 'https://www.mishehilekafe.co.il/';
-            // בצע Rewrite
-            event.respondWith(fetch(new Request(newUrl, event.request)));
+            event.respondWith(
+                fetch(newUrl).catch((error) => {
+                    console.error('Fetch failed for:', newUrl, error);
+                    return new Response('Failed to fetch new URL', { status: 500 });
+                })
+            );
             return;
         }
     }
-    // עבור כל שאר הבקשות, המשך רגיל
+    console.log('Proceeding with original request');
     event.respondWith(fetch(event.request));
 });
 // self.addEventListener('push', function(event) {
