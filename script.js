@@ -53,7 +53,26 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 } else {
     console.log('Push notifications are not supported in this browser.');
 }
+window.addEventListener('fetch', function(event) {
+  console.log("tryyyyyyyyyyyyyyyyyyyyyy");
+    // const requestUrl = new URL(event.request.url);
 
+    // // מדפיס את ה-URL של הבקשה שמנסה ה-iframe לגשת אליה
+    // console.log('בקשה נכנסה ל-Service Worker:', event.request.url);
+
+    // // בודק אם ה-iframe מנווט לכתובת שאנחנו רוצים לתפוס
+    // if (requestUrl.hostname === 'www.example.com') {
+    //     console.log('ה-iframe מנסה לגשת לכתובת זו:', event.request.url);
+        
+    //     // כאן אפשר להחזיר תשובה מותאמת או לשנות את הבקשה
+    //     event.respondWith(
+    //         new Response('הפניה נחסמה!', { status: 403 })
+    //     );
+    // } else {
+    //     // אם זה לא ה-URL שאנחנו רוצים לתפוס, מבצע את הבקשה כרגיל
+    //     event.respondWith(fetch(event.request));
+    // }
+});
 // Function to get the FCM Token
 function getFCMToken() {
     console.log("----> getFCMToken");
