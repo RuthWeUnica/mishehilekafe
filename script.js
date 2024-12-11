@@ -29,15 +29,16 @@ Notification.requestPermission().then(permission => {
         console.log("Notification permission denied.");
     }
 });
-// האזנה לטעינת ה-iframe
+// JavaScript בצד הלקוח (דף שמכיל את ה-iframe)
 const iframe = document.getElementById('wix-iframe');
 
 iframe.addEventListener('load', () => {
-    console.log("try!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     const iframeWindow = iframe.contentWindow;
 
     // שליחה ל-Service Worker כאשר ה-iframe מנסה לטעון כתובת חדשה
-    iframeWindow.addEventListener('beforeunload', function () {
+    iframeWindow.addEventListener('beforeunload', function (e) {
+        e.preventDefault(); // מונע את הניווט מיד
+
         console.log('ה-iframe מנסה לטעון כתובת חדשה:', iframeWindow.location.href);
 
         // שלח לדף הראשי את המידע של ה-URL שניסה ה-iframe לטעון
@@ -47,8 +48,14 @@ iframe.addEventListener('load', () => {
                 url: iframeWindow.location.href
             });
         }
+
+        // הוסף השהייה של 200 מילישניות לפני הניווט, זה יכול לעזור להמתין שה-`service worker` יטפל
+        setTimeout(() => {
+            iframeWindow.location.href = iframeWindow.location.href;  // נווט מחדש אחרי השהייה
+        }, 200); // השהייה של 200ms
     });
 });
+
 
 // האזנה להודעות מה-Service Worker
 navigator.serviceWorker.addEventListener('message', function(event) {
