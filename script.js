@@ -30,15 +30,6 @@ Notification.requestPermission().then(permission => {
     }
 });
 
-// האזנה להודעות מה-Service Worker
-navigator.serviceWorker.addEventListener('message', function(event) {
-    if (event.data.type === 'redirect-iframe') {
-        // עדכון ה-src של ה-iframe לכתובת החדשה
-        const iframe = document.getElementById('wix-iframe');
-        iframe.src = event.data.url; // עדכון ה-src לכתובת החדשה
-        console.log('ה-iframe מנווט לכתובת חדשה:', event.data.url);
-    }
-});
 
 // Register Service Workers
 if ('serviceWorker' in navigator && 'PushManager' in window) {
