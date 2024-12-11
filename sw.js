@@ -85,7 +85,7 @@ function fetchAndCache(request) {
     });
 }
 
-});
+// });
 // self.addEventListener('push', function(event) {
 //   const data = event.data.json();  // Assuming the server sends JSON
 //   const options = {
