@@ -23,26 +23,15 @@ self.addEventListener('fetch', fetchEvent => {
         );
     }
 });
+
+ 
+// מאזין לאירוע message לעדכון כתובת היעד
 self.addEventListener('message', event => {
-
+    console.log("cammmmmmmmmmmmmmmmmeeeeeeeeee:))))");
+ 
     if (event.data && event.data.type === 'UPDATE_IFRAME_URL') {
-        const newUrl = event.data.newUrl;
-        console.log('New iframe URL:', newUrl);
-
-        // האזנה לבקשות Fetch (לשנות את ה-URL של ה-iframe)
-        self.addEventListener('fetch', fetchEvent => {
-            // אם הבקשה היא ל-iframe
-            if (fetchEvent.request.url === 'https://ruthweunica.github.io/mishehilekafe/') {
-                // מבצע את הבקשה ל-URL החדש
-                fetchEvent.respondWith(
-                    fetch(newUrl)
-                        .then(response => response)
-                        .catch(error => {
-                            console.error('Error fetching the new URL:', error);
-                        })
-                );
-            }
-        });
+        alternateUrl = event.data.newUrl;
+        console.log('Updated alternate iframe URL to:', alternateUrl);
     }
 });
 
