@@ -14,7 +14,7 @@ self.addEventListener('fetch', fetchEvent => {
     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
      
         fetchEvent.respondWith(
-            fetch("http://www.mishehilekafe.co.il/")
+            fetch("https://www.mishehilekafe.co.il/",{ mode: 'no-cors' })
                 .then(response => response)
                 .catch(error => {
                     console.error('Error fetching alternate URL:', error);
