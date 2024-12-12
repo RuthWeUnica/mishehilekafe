@@ -62,7 +62,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 // שליחה ל-service worker על שינויים ב-iframe URL
 function sendMessageToServiceWorker() {
-    console.log("came into messageeeeeeeeeeeeeeee");
+    console.log("came into messageeeeeeeeeeeeeeee:)))))))))");
     // קודם כל לוודא שה- service worker נרשם
     if (navigator.serviceWorker.controller) {
         navigator.serviceWorker.controller.postMessage({
