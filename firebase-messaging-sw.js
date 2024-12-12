@@ -26,14 +26,14 @@ self.addEventListener('fetch', fetchEvent => {
 
  
 // מאזין לאירוע message לעדכון כתובת היעד
-self.addEventListener('message', event => {
-    console.log("cammmmmmmmmmmmmmmmmeeeeeeeeee:))))");
+// self.addEventListener('message', event => {
+//     console.log("cammmmmmmmmmmmmmmmmeeeeeeeeee:))))");
  
-    if (event.data && event.data.type === 'UPDATE_IFRAME_URL') {
-        alternateUrl = event.data.newUrl;
-        console.log('Updated alternate iframe URL to:', alternateUrl);
-    }
-});
+//     if (event.data && event.data.type === 'UPDATE_IFRAME_URL') {
+//         alternateUrl = event.data.newUrl;
+//         console.log('Updated alternate iframe URL to:', alternateUrl);
+//     }
+// });
 
 // Firebase configuration
 const firebaseConfig = {
