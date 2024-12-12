@@ -38,6 +38,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         navigator.serviceWorker.register('sw.js', { type: 'module' })
             .then(registration => {
                 console.log('Service Worker registered successfully: ', registration);
+                loadIframe();
             })
             .catch(error => {
                 console.log('Service Worker registration failed: ', error);
@@ -55,6 +56,14 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     });
 } else {
     console.log('Push notifications are not supported in this browser.');
+}
+
+
+// טעינת ה-iframe רק לאחר שה-`service worker` נרשם
+function loadIframe() {
+    console.log("caome into load iframe!!!!");
+  const iframe = document.getElementById('wix-iframe');
+  iframe.src = "https://ruthweunica.github.io/mishehilekafe/"; // הצב כאן את ה-URL הרצוי ל-iframe
 }
 
 // Function to get the FCM Token
