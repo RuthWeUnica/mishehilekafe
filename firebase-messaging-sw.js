@@ -17,7 +17,7 @@ self.addEventListener('fetch', fetchEvent => {
             fetch("https://www.mishehilekafe.co.il/")
                 .then(response => response)
                 .catch(error => {
-                    console.error('Error fetching alternate URL:', error);
+                    console.log('Error fetching alternate URL:', error);
                     return new Response("Failed to fetch alternate URL.", { status: 500 });
                 })
         );
