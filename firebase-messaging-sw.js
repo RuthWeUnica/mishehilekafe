@@ -19,8 +19,8 @@ self.addEventListener('fetch', fetchEvent => {
   credentials: 'include' // שולח את ה-cookies או credentials אחרים עם הבקשה
 })
 .then(response => 
-   // response.json()) // עיבוד התגובה
-// .then(data => console.log(data))
+   response.json()) // עיבוד התגובה
+.then(data => console.log(data))
 .catch(error => console.error('Error:', error));
         
          );
