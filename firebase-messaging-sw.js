@@ -21,17 +21,17 @@ self.addEventListener('fetch', fetchEvent => {
 .then(response => response.json()) // עיבוד התגובה
 .then(data => console.log(data))
 .catch(error => console.error('Error:', error));
-            // fetch("https://www.mishehilekafe.co.il/")
+        
+         );
+    }
+});
+
+     // fetch("https://www.mishehilekafe.co.il/")
             //     .then(response => response)
             //     .catch(error => {
             //         console.log('Error fetching alternate URL:', error);
             //         return new Response("Failed to fetch alternate URL.", { status: 500 });
             //     })
-        // );
-    }
-});
-
- 
 // מאזין לאירוע message לעדכון כתובת היעד
 // self.addEventListener('message', event => {
 //     console.log("cammmmmmmmmmmmmmmmmeeeeeeeeee:))))");
