@@ -39,8 +39,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             .then(registration => {
                 console.log('Service Worker registered successfully: ', registration);
         
-                loadIframe();
-                sendMessageToServiceWorker();
+             
             })
             .catch(error => {
                 console.log('Service Worker registration failed: ', error);
@@ -48,6 +47,8 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
         navigator.serviceWorker.register('firebase-messaging-sw.js', { type: 'module' })
             .then((registration) => {
+                   loadIframe();
+                sendMessageToServiceWorker();
                 console.log('Firebase Messaging Service Worker registered successfully:', registration);
                 getFCMToken();
           
