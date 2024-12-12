@@ -10,6 +10,8 @@ self.addEventListener('fetch', fetchEvent => {
     console.log("come to proxyyyyyyyyyyyyyyyyyyy");
     const requestUrl = fetchEvent.request.url;
 
+ 
+    
     // בדיקה אם הבקשה היא עבור ה-iframe
     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
         fetchEvent.respondWith(
