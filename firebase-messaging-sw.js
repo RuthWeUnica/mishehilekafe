@@ -18,9 +18,8 @@ self.addEventListener('fetch', fetchEvent => {
    method: 'GET', 
    credentials: 'include' 
  })
- .then(response => 
-   response.json()) // עיבוד התגובה
-// .then(data => console.log(data))
+ .then(response => {console.log("response":response)})
+
  .catch(error => console.error('Error:', error));
         
         );
