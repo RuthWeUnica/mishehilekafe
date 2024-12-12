@@ -63,7 +63,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 function loadIframe() {
     console.log("caome into load iframe!!!!");
   const iframe = document.getElementById('wix-iframe');
-  iframe.src = "https://ruthweunica.github.io/mishehilekafe/"; // הצב כאן את ה-URL הרצוי ל-iframe
+  iframe.src = "https://www.mishehilekafe.co.il/"; // הצב כאן את ה-URL הרצוי ל-iframe
 }
 
 // Function to get the FCM Token
