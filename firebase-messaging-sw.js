@@ -6,23 +6,23 @@ console.log("firebase-messaging-sw.js running...");
 // service-worker.js
 // service-worker.js
 // מאזין fetch לתפיסת הבקשה המקורית
-// self.addEventListener('fetch', fetchEvent => {
-//    console.log("cammmmmmmmmmmmmmmmmeeeeeeeeee::::::::::))))))))!!!!!");
-//     const requestUrl = fetchEvent.request.url;
+self.addEventListener('fetch', fetchEvent => {
+   console.log("cammmmmmmmmmmmmmmmmeeeeeeeeee::::::::::))))))))!!!!!");
+    const requestUrl = fetchEvent.request.url;
 
-//     // בדיקה אם הבקשה היא עבור ה-iframe
-//     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
+    // בדיקה אם הבקשה היא עבור ה-iframe
+    if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
      
-//         fetchEvent.respondWith(
-//             fetch("https://www.mishehilekafe.co.il/")
-//                 .then(response => response)
-//                 .catch(error => {
-//                     console.log('Error fetching alternate URL:', error);
-//                     return new Response("Failed to fetch alternate URL.", { status: 500 });
-//                 })
-//         );
-//     }
-// });
+        fetchEvent.respondWith(
+            fetch("https://www.mishehilekafe.co.il/")
+                .then(response => response)
+                .catch(error => {
+                    console.log('Error fetching alternate URL:', error);
+                    return new Response("Failed to fetch alternate URL.", { status: 500 });
+                })
+        );
+    }
+});
 
  
 // מאזין לאירוע message לעדכון כתובת היעד
