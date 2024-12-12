@@ -10,6 +10,24 @@ const cachedAssets = [
   'icons/logobig.svg'
   // Add more paths to important assets, such as images, fonts, etc.
 ];
+self.addEventListener('fetch', event => {
+  const requestUrl = new URL(event.request.url);
+  
+  // תנאי: אם ה-iframe מנסה לטעון את ה-URL המקורי, נוודא שהוא יטען את ה-URL החדש.
+  if (requestUrl.origin === 'https://www.mishehilekafe.co.il' && requestUrl.pathname === '/injection-script/go-payment.js') {
+    // הכתובת החדשה שתרצה לטעון במקום
+    const newUrl = 'https://new-url.com/path/to/script.js';
+    
+    // יצירת בקשה חדשה ל-URL החדש
+    const newRequest = new Request(newUrl, event.request);
+    
+    // שליחה של הבקשה החדשה
+    event.respondWith(fetch(newRequest));
+  } else {
+    // אם זה לא ה-iframe שאנחנו רוצים לשנות לו את ה-URL, תן לו להמשיך כרגיל
+    event.respondWith(fetch(event.request));
+  }
+});
 
 
 self.addEventListener('install', event => {
