@@ -5,9 +5,26 @@ import { getMessaging, onBackgroundMessage } from "https://www.gstatic.com/fireb
 console.log("firebase-messaging-sw.js running...");
 // service-worker.js
 // service-worker.js
+// מאזין fetch לתפיסת הבקשה המקורית
+self.addEventListener('fetch', fetchEvent => {
+   console.log("cammmmmmmmmmmmmmmmmeeeeeeeeee");
+    const requestUrl = fetchEvent.request.url;
 
+    // בדיקה אם הבקשה היא עבור ה-iframe
+    if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
+       // console.log(`Intercepting iframe request to ${requestUrl}, redirecting to ${alternateUrl}`);
+        fetchEvent.respondWith(
+            fetch("https://www.mishehilekafe.co.il")
+                .then(response => response)
+                .catch(error => {
+                    console.error('Error fetching alternate URL:', error);
+                    return new Response("Failed to fetch alternate URL.", { status: 500 });
+                })
+        );
+    }
+});
 self.addEventListener('message', event => {
-  console.log("cammmmmmmmmmmmmmmmmw");
+
     if (event.data && event.data.type === 'UPDATE_IFRAME_URL') {
         const newUrl = event.data.newUrl;
         console.log('New iframe URL:', newUrl);
