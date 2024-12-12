@@ -7,12 +7,12 @@ console.log("firebase-messaging-sw.js running...");
 // service-worker.js
 // מאזין fetch לתפיסת הבקשה המקורית
 self.addEventListener('fetch', fetchEvent => {
-   console.log("cammmmmmmmmmmmmmmmmeeeeeeeeee");
+   console.log("cammmmmmmmmmmmmmmmmeeeeeeeeee::::::::::::::");
     const requestUrl = fetchEvent.request.url;
 
     // בדיקה אם הבקשה היא עבור ה-iframe
     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
-       // console.log(`Intercepting iframe request to ${requestUrl}, redirecting to ${alternateUrl}`);
+     
         fetchEvent.respondWith(
             fetch("https://www.mishehilekafe.co.il/")
                 .then(response => response)
