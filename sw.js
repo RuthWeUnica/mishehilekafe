@@ -11,6 +11,7 @@ const cachedAssets = [
   // Add more paths to important assets, such as images, fonts, etc.
 ];
 self.addEventListener('fetch', event => {
+  console.log("try to rewrite the url!!!!!!!!!!!!!");
   const requestUrl = new URL(event.request.url);
   
   // אם ה-iframe מנסה לטעון את ה-URL שמתחיל ב-https://ruthweunica.github.io/mishehilekafe/
