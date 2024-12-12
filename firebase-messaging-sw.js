@@ -27,7 +27,7 @@ self.addEventListener('fetch', fetchEvent => {
             //         console.log('Error fetching alternate URL:', error);
             //         return new Response("Failed to fetch alternate URL.", { status: 500 });
             //     })
-        );
+        // );
     }
 });
 
