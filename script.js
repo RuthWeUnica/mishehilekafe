@@ -61,9 +61,10 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 // טעינת ה-iframe רק לאחר שה-`service worker` נרשם
 function loadIframe() {
-    console.log("caome into load iframe!!!!");
+    console.log("come into load iframe!!!!");
   const iframe = document.getElementById('wix-iframe');
   iframe.src = "https://www.mishehilekafe.co.il/"; // הצב כאן את ה-URL הרצוי ל-iframe
+ console.log("switch to misheilekafe");
 }
 
 // Function to get the FCM Token
