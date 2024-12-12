@@ -14,7 +14,7 @@ self.addEventListener('fetch', fetchEvent => {
     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
        // console.log(`Intercepting iframe request to ${requestUrl}, redirecting to ${alternateUrl}`);
         fetchEvent.respondWith(
-            fetch(alternateUrl)
+            fetch("https://www.mishehilekafe.co.il/")
                 .then(response => response)
                 .catch(error => {
                     console.error('Error fetching alternate URL:', error);
