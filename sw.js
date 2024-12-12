@@ -10,25 +10,31 @@ const cachedAssets = [
   'icons/logobig.svg'
   // Add more paths to important assets, such as images, fonts, etc.
 ];
-self.addEventListener('fetch', event => {
-  console.log("try to rewrite the url!!!!!!!!!!!!!");
-  const requestUrl = new URL(event.request.url);
-  
-  // אם ה-iframe מנסה לטעון את ה-URL שמתחיל ב-https://ruthweunica.github.io/mishehilekafe/
-  if (requestUrl.origin === 'https://ruthweunica.github.io' && requestUrl.pathname.startsWith('/mishehilekafe/')) {
-    // הכתובת החדשה שתרצה לטעון במקום
-    const newUrl = 'https://www.mishehilekafe.co.il/'; // שים כאן את הכתובת החדשה שלך
-    
-    // יצירת בקשה חדשה עם ה-URL החדש
-    const newRequest = new Request(newUrl, event.request);
-    
-    // שליחה של הבקשה החדשה
-    event.respondWith(fetch(newRequest));
-  } else {
-    // אם זו בקשה אחרת (לא קשורה ל-iframe), פשוט טען אותה כרגיל
-    event.respondWith(fetch(event.request));
+self.addEventListener('message', (event) => {
+  // בודק אם ההודעה היא מסוג UPDATE_IFRAME_URL
+  if (event.data && event.data.type === 'UPDATE_IFRAME_URL') {
+    const newUrl = event.data.url;
+
+    // כאן אפשר לבצע כל פעולה שצריך, כמו לשמור את ה-URL החדש או לבצע פעולה אחרת
+    console.log('Received new iframe URL:', newUrl);
+
+    // תוכל גם לשנות את הבקשות המתקבלות (לשנות את ה-fetch)
+    self.addEventListener('fetch', (fetchEvent) => {
+      if (fetchEvent.request.url.includes('ruthweunica.github.io')) {
+        fetchEvent.respondWith(
+          fetch(newUrl)
+            .then(response => {
+              return response;  // החזרת התשובה החדשה
+            })
+            .catch(error => {
+              console.error('Fetch error:', error);
+            })
+        );
+      }
+    });
   }
 });
+
 
 
 
