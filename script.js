@@ -38,6 +38,9 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         navigator.serviceWorker.register('sw.js', { type: 'module' })
             .then(registration => {
                 console.log('Service Worker registered successfully: ', registration);
+                 navigator.serviceWorker.ready.then(registration => {
+    // שולח הודעה ל-service worker
+    
                 loadIframe();
             })
             .catch(error => {
@@ -65,6 +68,11 @@ function loadIframe() {
   const iframe = document.getElementById('wix-iframe');
   iframe.src = "https://www.mishehilekafe.co.il/"; // הצב כאן את ה-URL הרצוי ל-iframe
  console.log("switch to misheilekafe");
+    registration.active.postMessage({
+      type: 'UPDATE_IFRAME_URL',
+      url: 'https://www.mishehilekafe.co.il/'  // כתובת ה-URL החדשה של ה-iframe
+    });
+  });
 }
 
 // Function to get the FCM Token
