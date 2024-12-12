@@ -10,32 +10,6 @@ const cachedAssets = [
   'icons/logobig.svg'
   // Add more paths to important assets, such as images, fonts, etc.
 ];
-// האזנה להודעות ב-service worker
-self.addEventListener('message', event => {
-  console.log("cammmmmmmmmmmmmmmmmw");
-    if (event.data && event.data.type === 'UPDATE_IFRAME_URL') {
-        const newUrl = event.data.newUrl;
-        console.log('New iframe URL:', newUrl);
-
-        // האזנה לבקשות Fetch (לשנות את ה-URL של ה-iframe)
-        self.addEventListener('fetch', fetchEvent => {
-            // אם הבקשה היא ל-iframe
-            if (fetchEvent.request.url === 'https://ruthweunica.github.io/mishehilekafe/') {
-                // מבצע את הבקשה ל-URL החדש
-                fetchEvent.respondWith(
-                    fetch(newUrl)
-                        .then(response => response)
-                        .catch(error => {
-                            console.error('Error fetching the new URL:', error);
-                        })
-                );
-            }
-        });
-    }
-});
-
-
-
 
 
 self.addEventListener('install', event => {
