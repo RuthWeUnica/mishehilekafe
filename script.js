@@ -40,7 +40,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
                 console.log('Service Worker registered successfully: ', registration);
         
                 loadIframe();
-                sendMessageToServiceWorker();
+                // sendMessageToServiceWorker();
             })
             .catch(error => {
                 console.log('Service Worker registration failed: ', error);
@@ -60,26 +60,26 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     console.log('Push notifications are not supported in this browser.');
 }
 
-// שליחה ל-service worker על שינויים ב-iframe URL
-function sendMessageToServiceWorker() {
-    console.log("came into messageeeeeeeeeeeeeeee:)))))))))");
-    // קודם כל לוודא שה- service worker נרשם
-    if (navigator.serviceWorker.controller) {
-        navigator.serviceWorker.controller.postMessage({
-            type: 'UPDATE_IFRAME_URL',
-            newUrl: 'https://www.mishehilekafe.co.il/' // ה-URL החדש שברצונך להשתמש בו ב-iframe
-        });
-        console.log('Message sent to service worker');
-    } else {
-        console.log('No active service worker to send message to.');
-    }
-}
+// // שליחה ל-service worker על שינויים ב-iframe URL
+// function sendMessageToServiceWorker() {
+//     console.log("came into messageeeeeeeeeeeeeeee:)))))))))");
+//     // קודם כל לוודא שה- service worker נרשם
+//     if (navigator.serviceWorker.controller) {
+//         navigator.serviceWorker.controller.postMessage({
+//             type: 'UPDATE_IFRAME_URL',
+//             newUrl: 'https://www.mishehilekafe.co.il/' // ה-URL החדש שברצונך להשתמש בו ב-iframe
+//         });
+//         console.log('Message sent to service worker');
+//     } else {
+//         console.log('No active service worker to send message to.');
+//     }
+// }
 
 // טעינת ה-iframe רק לאחר שה-`service worker` נרשם
 function loadIframe() {
-    console.log("come into load iframe!!!!!!!!!!!!!!!!!!!!!");
+    console.log("come into load iframe:)))))))))))))");
   const iframe = document.getElementById('wix-iframe');
-  iframe.src = "https://ruthweunica.github.io/mishehilekafe/"; // הצב כאן את ה-URL הרצוי ל-iframe
+  iframe.src = "https://www.mishehilekafe.co.il/"; // הצב כאן את ה-URL הרצוי ל-iframe
  console.log("switch to misheilekafeeeeeeeeee");
    
 }
