@@ -71,7 +71,7 @@ function loadIframe() {
     console.log("come into load iframe!!!!!!!!!!!!!!!!!!!!!");
   const iframe = document.getElementById('wix-iframe');
   iframe.src = "https://ruthweunica.github.io/mishehilekafe/"; // הצב כאן את ה-URL הרצוי ל-iframe
- console.log("switch to misheilekafe");
+ console.log("switch to misheilekafeeeeeeeeee");
    
 }
 
