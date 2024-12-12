@@ -47,30 +47,7 @@ self.addEventListener('activate', event => {
     })
   );
 });
-self.addEventListener('fetch', event => {
-  console.log("Fetching request for: ", event.request.url);
 
-  // נבדוק אם הבקשה היא על ה-URL של ה-iframe
-  if (event.request.url === 'https://www.mishehilekafe.co.il/') {
-    // שים את ה-URL החדש כאן
-    const newUrl = 'https://www.mishehilekafe.co.il/';
-
-    // נבצע Rewrite של ה-URL
-    event.respondWith(
-      fetch(newUrl).then(response => {
-        // נחזיר את התגובה כמו שהיא אם נצליח
-        return response;
-      }).catch(error => {
-        console.error('Error fetching new URL:', error);
-      })
-    );
-  } else {
-    // אם זו לא הבקשה של ה-iframe, נחזור על פעולתה הרגילה
-    event.respondWith(
-      fetch(event.request)
-    );
-  }
-});
 
 self.addEventListener('fetch', event => {
   console.log("come into!!!!!!!!!!!!!!!!!!!!!!!");
