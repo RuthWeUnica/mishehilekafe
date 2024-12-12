@@ -7,24 +7,28 @@ console.log("firebase-messaging-sw.js running...");
 // service-worker.js
 // מאזין fetch לתפיסת הבקשה המקורית
 self.addEventListener('fetch', fetchEvent => {
-   console.log("come................");
+    console.log("come................");
     const requestUrl = fetchEvent.request.url;
 
-//     // בדיקה אם הבקשה היא עבור ה-iframe
+    // בדיקה אם הבקשה היא עבור ה-iframe
     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
-     
         fetchEvent.respondWith(
             fetch('https://www.mishehilekafe.co.il/', {
-   method: 'GET', 
-   credentials: 'include' 
- })
- // .then(response => {console.log("response":response)})
-
- // .catch(error => console.error('Error:', error));
-        
+                method: 'GET',
+                credentials: 'include' // מאפשר לשלוח את ה-cookies
+            })
+            .then(response => {
+                // חזור עם התגובה
+                return response;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                return new Response('Error fetching data', { status: 500 });
+            })
         );
     }
 });
+
 
      // fetch("https://www.mishehilekafe.co.il/")
             //     .then(response => response)
