@@ -19,6 +19,24 @@ const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 
 console.log("messeging in script.js", messaging);
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("try!!!!!!!!!!!!!!!!!);
+    // גישה ל-iframe לפי ה-ID
+    const iframe = document.getElementById('wix-iframe');
+
+    // בדיקה אם יש צורך לעדכן את ה-src של ה-iframe
+    if (iframe) {
+        // ה-URL החדש שאתה רוצה להטמיע
+        const newUrl = 'https://www.mishehilekafe.co.il/';
+
+        // עדכון ה-src של ה-iframe
+        iframe.src = newUrl;
+
+        console.log("Iframe src was updated to:", newUrl);
+    } else {
+        console.log("Iframe not found!");
+    }
+});
 
 // Request Notification Permission
 Notification.requestPermission().then(permission => {
