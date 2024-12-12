@@ -61,7 +61,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     console.log('Push notifications are not supported in this browser.');
 }
 
-שליחה ל-service worker על שינויים ב-iframe URL
+
 function sendMessageToServiceWorker() {
     console.log("came into messageeeeeeeeeeeeeeee:)))))))))");
     // קודם כל לוודא שה- service worker נרשם
