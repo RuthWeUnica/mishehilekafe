@@ -38,12 +38,12 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
         navigator.serviceWorker.register('sw.js', { type: 'module' })
             .then(registration => {
                 console.log('Service Worker registered successfully: ', registration);
-                 navigator.serviceWorker.ready.then(registration => {
+              
     registration.active.postMessage({
       type: 'UPDATE_IFRAME_URL',
       url: 'https://www.mishehilekafe.co.il/'  // כתובת ה-URL החדשה של ה-iframe
     });
-  });
+  
     
                 loadIframe();
             })
