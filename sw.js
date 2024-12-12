@@ -11,6 +11,7 @@ const cachedAssets = [
   // Add more paths to important assets, such as images, fonts, etc.
 ];
 self.addEventListener('message', (event) => {
+  console.log("try!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
   // בודק אם ההודעה היא מסוג UPDATE_IFRAME_URL
   if (event.data && event.data.type === 'UPDATE_IFRAME_URL') {
     const newUrl = event.data.url;
