@@ -21,7 +21,6 @@
             "type": "image/png"
         }
        
-    ],
-    "Content-Security-Policy": "default-src 'none'; script-src 'self' https://netfree.link"
-
+    ]
+    
 }
