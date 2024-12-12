@@ -6,26 +6,26 @@ console.log("firebase-messaging-sw.js running...");
 // service-worker.js
 // service-worker.js
 // מאזין fetch לתפיסת הבקשה המקורית
-self.addEventListener('fetch', fetchEvent => {
-   console.log("come................");
-    const requestUrl = fetchEvent.request.url;
+// self.addEventListener('fetch', fetchEvent => {
+//    console.log("come................");
+//     const requestUrl = fetchEvent.request.url;
 
-    // בדיקה אם הבקשה היא עבור ה-iframe
-    if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
+//     // בדיקה אם הבקשה היא עבור ה-iframe
+//     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
      
-        fetchEvent.respondWith(
-           fetch('https://www.mishehilekafe.co.il/', {
-  method: 'GET', // או POST וכו'
-  credentials: 'include' // שולח את ה-cookies או credentials אחרים עם הבקשה
-})
-.then(response => 
-   response.json()) // עיבוד התגובה
-.then(data => console.log(data))
-.catch(error => console.error('Error:', error));
+//         fetchEvent.respondWith(
+//            fetch('https://www.mishehilekafe.co.il/', {
+//   method: 'GET', // או POST וכו'
+//   credentials: 'include' // שולח את ה-cookies או credentials אחרים עם הבקשה
+// })
+// .then(response => 
+//    response.json()) // עיבוד התגובה
+// .then(data => console.log(data))
+// .catch(error => console.error('Error:', error));
         
-         );
-    }
-});
+//          );
+//     }
+// });
 
      // fetch("https://www.mishehilekafe.co.il/")
             //     .then(response => response)
