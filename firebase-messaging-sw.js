@@ -18,9 +18,9 @@ self.addEventListener('fetch', fetchEvent => {
    method: 'GET', 
    credentials: 'include' 
  })
- .then(response => {console.log("response":response)})
+ // .then(response => {console.log("response":response)})
 
- .catch(error => console.error('Error:', error));
+ // .catch(error => console.error('Error:', error));
         
         );
     }
