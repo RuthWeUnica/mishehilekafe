@@ -39,7 +39,11 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             .then(registration => {
                 console.log('Service Worker registered successfully: ', registration);
                  navigator.serviceWorker.ready.then(registration => {
-    // שולח הודעה ל-service worker
+    registration.active.postMessage({
+      type: 'UPDATE_IFRAME_URL',
+      url: 'https://www.mishehilekafe.co.il/'  // כתובת ה-URL החדשה של ה-iframe
+    });
+  });
     
                 loadIframe();
             })
@@ -68,11 +72,7 @@ function loadIframe() {
   const iframe = document.getElementById('wix-iframe');
   iframe.src = "https://ruthweunica.github.io/mishehilekafe/"; // הצב כאן את ה-URL הרצוי ל-iframe
  console.log("switch to misheilekafe");
-    registration.active.postMessage({
-      type: 'UPDATE_IFRAME_URL',
-      url: 'https://www.mishehilekafe.co.il/'  // כתובת ה-URL החדשה של ה-iframe
-    });
-  });
+   
 }
 
 // Function to get the FCM Token
