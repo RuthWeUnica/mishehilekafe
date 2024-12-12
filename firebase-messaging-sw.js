@@ -13,7 +13,7 @@ self.addEventListener('fetch', fetchEvent => {
     // בדיקה אם הבקשה היא עבור ה-iframe
     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
         fetchEvent.respondWith(
-            fetch('https://www.mishehilekafe.co.il/',,{
+            fetch('https://www.mishehilekafe.co.il/',{
                 method: 'GET',
                 credentials: 'include' // מאפשר לשלוח את ה-cookies
             })
