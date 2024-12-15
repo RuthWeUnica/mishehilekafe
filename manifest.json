@@ -6,11 +6,7 @@
     "background_color": "#fff",
     "theme_color": "#333",
     "icons": [
-        {
-            "src": "icons/logobig.svg",
-            "sizes": "192x192",
-            "type": "image/svg"
-        }, {
+      {
             "src": "singleCoffeeCup.png",
             "sizes": "192x192",
             "type": "image/png"
