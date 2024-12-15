@@ -7,7 +7,7 @@ console.log("firebase-messaging-sw.js running...");
 // service-worker.js
 // מאזין fetch לתפיסת הבקשה המקורית
 self.addEventListener('fetch', fetchEvent => {
-    console.log("come to proxyyyyyyyyyyyyyyyyyyy");
+    console.log("come to proxyyyyyyyyyyyyyyyyyyy!!!");
     const requestUrl = fetchEvent.request.url;
 
  
