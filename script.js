@@ -78,13 +78,13 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 // }
 
 // טעינת ה-iframe רק לאחר שה-`service worker` נרשם
-function loadIframe() {
-    console.log("come into load iframe:))))))))");
-  const iframe = document.getElementById('wix-iframe');
-  iframe.src = 'https://ruthweunica.github.io/mishehilekafe/'; // הצב כאן את ה-URL הרצוי ל-iframe
- console.log("switch to misheile");
+// function loadIframe() {
+//     console.log("come into load iframe:))))))))");
+//   const iframe = document.getElementById('wix-iframe');
+//   iframe.src = 'https://ruthweunica.github.io/mishehilekafe/'; // הצב כאן את ה-URL הרצוי ל-iframe
+//  console.log("switch to misheile");
    
-}
+// }
 
 // Function to get the FCM Token
 function getFCMToken() {
