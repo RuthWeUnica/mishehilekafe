@@ -4,7 +4,41 @@ import { getMessaging, onBackgroundMessage } from "https://www.gstatic.com/fireb
 
 console.log("firebase-messaging-sw.js running...");
 
-
+// service-worker.js
+// service-worker.js
+// מאזין fetch לתפיסת הבקשה המקורית
+self.addEventListener('fetch', fetchEvent => {
+    console.log("come to proxyyyyyyyyyyyyyyyyyyy!!!");
+    const requestUrl = fetchEvent.request.url;
+    // בדיקה אם הבקשה היא עבור ה-iframe
+    if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
+        fetchEvent.respondWith(
+            fetch('http://localhost:3000/proxy')
+            .then(response => {
+                // חזור עם התגובה
+                return response;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                return new Response('Error fetching data', { status: 500 });
+            })
+        );
+    }
+});
+     // fetch("https://www.mishehilekafe.co.il/")
+            //     .then(response => response)
+            //     .catch(error => {
+            //         console.log('Error fetching alternate URL:', error);
+            //         return new Response("Failed to fetch alternate URL.", { status: 500 });
+            //     })
+// מאזין לאירוע message לעדכון כתובת היעד
+// self.addEventListener('message', event => {
+//     console.log("cammmmmmmmmmmmmmmmmeeeeeeeeee:))))");
+//     if (event.data && event.data.type === 'UPDATE_IFRAME_URL') {
+//         alternateUrl = event.data.newUrl;
+//         console.log('Updated alternate iframe URL to:', alternateUrl);
+//     }
+// });
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
