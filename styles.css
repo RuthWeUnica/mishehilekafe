@@ -14,7 +14,7 @@
 /* body {
     background-color: lightblue
 }  */
-/*  .button {
+ .button {
             display: inline-block;
             padding: 10px 20px;
             font-size: 16px;
@@ -28,16 +28,16 @@
         }
         .button:hover {
             background-color: #005EA6;
-        } */
-/* a {
+        }
+a {
     font-family: math;
     text-decoration: none;
     color: white;
     /* font-size: x-large; */
     position: relative;
     top: 30%;
-} */
-/* 
+}
+
 div {
     border-radius: 30%;
     top: 40%;
@@ -48,5 +48,5 @@ div {
     color: white;
     height: 10vh;
     width: 20%;
-} */
+}
 
