@@ -7,32 +7,32 @@ console.log("firebase-messaging-sw.js running...");
 // service-worker.js
 // service-worker.js
 // מאזין fetch לתפיסת הבקשה המקורית
-self.addEventListener('fetch', (event) => {
-  const requestUrl = new URL(event.request.url);
+// self.addEventListener('fetch', (event) => {
+//   const requestUrl = new URL(event.request.url);
 
-  // בדיקה אם ה-URL דורש טיפול בפרוקסי
-  if (requestUrl.hostname === 'lottie.host') {
-    // יצירת בקשה לשרת הפרוקסי
-    const proxyUrl = `http://localhost:3000/proxy-lottie${requestUrl.pathname}`;
+//   // בדיקה אם ה-URL דורש טיפול בפרוקסי
+//   if (requestUrl.hostname === 'lottie.host') {
+//     // יצירת בקשה לשרת הפרוקסי
+//     const proxyUrl = `http://localhost:3000/proxy-lottie${requestUrl.pathname}`;
 
-    event.respondWith(
-      fetch(proxyUrl, {
-        method: event.request.method,
-        headers: event.request.headers,
-        body: event.request.method === 'POST' ? event.request.body : null,
-        mode: 'cors', // מבטיח שהבקשה תעבור כתקינה
-      })
-        .then((proxyResponse) => {
-          // החזרת התגובה מהפרוקסי
-          return proxyResponse;
-        })
-        .catch((error) => {
-          console.error('Proxy request failed:', error);
-          return new Response('Request failed via proxy', { status: 500 });
-        })
-    );
-  }
-});
+//     event.respondWith(
+//       fetch(proxyUrl, {
+//         method: event.request.method,
+//         headers: event.request.headers,
+//         body: event.request.method === 'POST' ? event.request.body : null,
+//         mode: 'cors', // מבטיח שהבקשה תעבור כתקינה
+//       })
+//         .then((proxyResponse) => {
+//           // החזרת התגובה מהפרוקסי
+//           return proxyResponse;
+//         })
+//         .catch((error) => {
+//           console.error('Proxy request failed:', error);
+//           return new Response('Request failed via proxy', { status: 500 });
+//         })
+//     );
+//   }
+// });
 
 self.addEventListener('fetch', fetchEvent => {
     console.log("come to proxyyyyyyyyyyyyyyyyyyy!!!");
@@ -40,7 +40,7 @@ self.addEventListener('fetch', fetchEvent => {
     // בדיקה אם הבקשה היא עבור ה-iframe
     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
         fetchEvent.respondWith(
-            fetch('http://localhost:3000/proxy')
+            fetch('https://www.mishehilekafe.co.il/')
             .then(response => {
                 // חזור עם התגובה
                 return response;
