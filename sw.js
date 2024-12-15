@@ -5,8 +5,7 @@ const cachedAssets = [
   'index.html',
   'styles.css',
   'script.js',
-  'singleCoffeeCup.png',
-  'singleCoffeeCup_copy.png',
+  'icons/logobig.svg'
 ];
 
 
