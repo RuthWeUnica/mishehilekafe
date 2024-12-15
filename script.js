@@ -162,6 +162,7 @@ async function updateDeviceToken(memberId, deviceToken) {
     }
 }
 document.getElementById("login_btn").addEventListener("click",(e)=>{
+    console.log("device token to quaryParam",deviceToken);
     window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}`;
 })
 
