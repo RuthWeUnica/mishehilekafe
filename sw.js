@@ -5,9 +5,9 @@ const cachedAssets = [
   'index.html',
   'styles.css',
   'script.js',
-  'singleCoffeeCup.png',
-  'singleCoffeeCup_copy.png',
-  'icons/logobig.svg'
+  // 'singleCoffeeCup.png',
+  // 'singleCoffeeCup_copy.png',
+  // 'icons/logobig.svg'
   // Add more paths to important assets, such as images, fonts, etc.
 ];
 
