@@ -6,27 +6,27 @@ console.log("firebase-messaging-sw.js running...");
 // service-worker.js
 // service-worker.js
 // מאזין fetch לתפיסת הבקשה המקורית
-self.addEventListener('fetch', fetchEvent => {
-    console.log("come to proxyyyyyyyyyyyyyyyyyyy!!!");
-    const requestUrl = fetchEvent.request.url;
+// self.addEventListener('fetch', fetchEvent => {
+//     console.log("come to proxyyyyyyyyyyyyyyyyyyy!!!");
+//     const requestUrl = fetchEvent.request.url;
 
  
     
-    // בדיקה אם הבקשה היא עבור ה-iframe
-    if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
-        fetchEvent.respondWith(
-            fetch('http://localhost:3000/proxy')
-            .then(response => {
-                // חזור עם התגובה
-                return response;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                return new Response('Error fetching data', { status: 500 });
-            })
-        );
-    }
-});
+//     // בדיקה אם הבקשה היא עבור ה-iframe
+//     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
+//         fetchEvent.respondWith(
+//             fetch('http://localhost:3000/proxy')
+//             .then(response => {
+//                 // חזור עם התגובה
+//                 return response;
+//             })
+//             .catch(error => {
+//                 console.error('Error:', error);
+//                 return new Response('Error fetching data', { status: 500 });
+//             })
+//         );
+//     }
+// });
 
 
      // fetch("https://www.mishehilekafe.co.il/")
