@@ -29,16 +29,16 @@
         .button:hover {
             background-color: #005EA6;
         } */
-a {
+/* a {
     font-family: math;
     text-decoration: none;
     color: white;
     /* font-size: x-large; */
     position: relative;
     top: 30%;
-}
+} */
 
-div {
+/* div {
     border-radius: 30%;
     top: 40%;
     position: absolute;
@@ -49,4 +49,4 @@ div {
     height: 10vh;
     width: 20%;
 }
-
+ */
