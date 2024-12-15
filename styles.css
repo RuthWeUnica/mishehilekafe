@@ -1,4 +1,4 @@
-iframe {
+/* iframe {
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -10,7 +10,7 @@ iframe {
     border: none;
     overflow: hidden; */
 }
-/* 
+/*  */
 body {
     background-color: lightblue
 } */
@@ -38,7 +38,7 @@ a {
     top: 30%;
 }
 
-div {
+/* div {
     border-radius: 30%;
     top: 40%;
     position: absolute;
@@ -49,3 +49,4 @@ div {
     height: 10vh;
     width: 20%;
 }
+ */
