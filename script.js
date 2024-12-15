@@ -49,7 +49,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             .then((registration) => {
                    // loadIframe();
                 // sendMessageToServiceWorker();
-                console.log('Firebase Messaging Service Worker registered successfully:', registration);
+                console.log('Firebase Messaging Service Worker registered successfully:))', registration);
                 getFCMToken();
           
             })
