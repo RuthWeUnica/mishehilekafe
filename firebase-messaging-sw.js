@@ -16,22 +16,22 @@ const firebaseConfig = {
   appId: "1:1042180147223:web:3d73406c082f45dcac3452"
 };
 
-self.addEventListener('fetch', fetchEvent => {
-    console.log("come to proxy???");
-    const requestUrl = fetchEvent.request.url;
-    // בדיקה אם הבקשה היא עבור ה-iframe
-    if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
-        fetchEvent.respondWith(
-              fetch("https://www.mishehilekafe.co.il/")
-                .then(response => response)
-                .catch(error => {
-                    console.log('Error fetching alternate URL:', error);
-                    return new Response("Failed to fetch alternate URL.", { status: 500 });
-                })
+// self.addEventListener('fetch', fetchEvent => {
+//     console.log("come to proxy???");
+//     const requestUrl = fetchEvent.request.url;
+//     // בדיקה אם הבקשה היא עבור ה-iframe
+//     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
+//         fetchEvent.respondWith(
+//               fetch("https://www.mishehilekafe.co.il/")
+//                 .then(response => response)
+//                 .catch(error => {
+//                     console.log('Error fetching alternate URL:', error);
+//                     return new Response("Failed to fetch alternate URL.", { status: 500 });
+//                 })
           
-        );
-    }
-});
+//         );
+//     }
+// });
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
