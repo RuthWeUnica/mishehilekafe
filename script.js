@@ -161,6 +161,9 @@ async function updateDeviceToken(memberId, deviceToken) {
         console.error('Error updating device token:', error);
     }
 }
+document.getElementById("login_btn").addEventListener("click",(e)=>{
+    window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}`;
+})
 
 
 
