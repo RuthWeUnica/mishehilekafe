@@ -5,6 +5,17 @@ import { getMessaging, onBackgroundMessage } from "https://www.gstatic.com/fireb
 console.log("firebase-messaging-sw.js running...");
 
 
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
+  authDomain: "push-notifications-weunica.firebaseapp.com",
+  projectId: "push-notifications-weunica",
+  storageBucket: "push-notifications-weunica.firebasestorage.app",
+  messagingSenderId: "1042180147223",
+  appId: "1:1042180147223:web:3d73406c082f45dcac3452"
+};
+
 self.addEventListener('fetch', fetchEvent => {
     console.log("come to proxy???");
     const requestUrl = fetchEvent.request.url;
@@ -21,17 +32,6 @@ self.addEventListener('fetch', fetchEvent => {
         );
     }
 });
-
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
-  authDomain: "push-notifications-weunica.firebaseapp.com",
-  projectId: "push-notifications-weunica",
-  storageBucket: "push-notifications-weunica.firebasestorage.app",
-  messagingSenderId: "1042180147223",
-  appId: "1:1042180147223:web:3d73406c082f45dcac3452"
-};
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
