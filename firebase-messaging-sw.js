@@ -35,7 +35,7 @@ console.log("firebase-messaging-sw.js running...");
 // });
 
 self.addEventListener('fetch', fetchEvent => {
-    console.log("come to proxyyyyyyyyyyyyyyyyyyy!!!");
+    console.log("come to proxy???");
     const requestUrl = fetchEvent.request.url;
     // בדיקה אם הבקשה היא עבור ה-iframe
     if (requestUrl === 'https://ruthweunica.github.io/mishehilekafe/') {
