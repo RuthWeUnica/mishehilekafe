@@ -51,7 +51,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
                 // sendMessageToServiceWorker();
                 console.log('Firebase Messaging Service Worker registered successfully:))', registration);
                 getFCMToken();
-                 loadIframe();
+              loadIframe();
           
             })
             .catch((err) => {
