@@ -1,4 +1,4 @@
-/* iframe {
+ iframe {
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -10,11 +10,11 @@
     border: none;
     overflow: hidden; */
 }
-/*  */
+  */
 body {
     background-color: lightblue
 } */
- .button {
+/*  .button {
             display: inline-block;
             padding: 10px 20px;
             font-size: 16px;
@@ -28,7 +28,7 @@ body {
         }
         .button:hover {
             background-color: #005EA6;
-        }
+        } */
 a {
     font-family: math;
     text-decoration: none;
@@ -38,7 +38,7 @@ a {
     top: 30%;
 }
 
-/* div {
+div {
     border-radius: 30%;
     top: 40%;
     position: absolute;
@@ -49,4 +49,4 @@ a {
     height: 10vh;
     width: 20%;
 }
- */
+
