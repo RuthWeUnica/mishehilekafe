@@ -37,7 +37,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     window.addEventListener('load', () => {
          navigator.serviceWorker.register('sw.js', { type: 'module' })
             .then(registration => {
-                console.log('Service Worker registered successfully: ', registration);
+                console.log('Service Worker registered successfully:)) ', registration);
         
              
             })
