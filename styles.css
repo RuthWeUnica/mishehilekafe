@@ -8,22 +8,29 @@ body {
 }
 
 #login_btn {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 12px 24px;
     font-size: 18px;
     font-weight: bold;
     color: white;
-    background: linear-gradient(45deg, #0000FF, #FF0000); /* מעבר צבע מכחול לאדום */
+    background: linear-gradient(45deg, #0000FF, #FF0000);
     border: none;
     border-radius: 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    background-image: url('icons/logobig.svg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 24px 24px;
+    padding-left: 50px; /* מקום לאייקון */
 }
 
 #login_btn:hover {
-    background: linear-gradient(45deg, #0000CC, #CC0000); /* מעבר צבע כהה יותר */
+    background: linear-gradient(45deg, #0000CC, #CC0000);
     transform: scale(1.05);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
