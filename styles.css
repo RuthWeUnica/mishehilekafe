@@ -30,6 +30,10 @@ body {
 }
 
 
+.button-icon {
+    width: 24px; /* רוחב האייקון */
+    height: 24px; /* גובה האייקון */
+}
 
 iframe {
     overflow: hidden;
