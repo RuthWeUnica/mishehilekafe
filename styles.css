@@ -22,16 +22,7 @@ body {
     height: 150px; /* גובה כפתור גדול */
 }
 
-#login_btn:hover {
-    background: linear-gradient(45deg, #0000CC, #CC0000); /* צבע כהה יותר ב-hover */
-    transform: scale(1.1);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-}
 
-#login_btn:active {
-    transform: scale(0.95);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
 
 .button-icon {
     width: 80%; /* התמונה תשתמש ב-80% מגודל הכפתור */
