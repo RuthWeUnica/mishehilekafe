@@ -113,11 +113,11 @@ function getFCMToken() {
 }
 
 // Listen for foreground messages
-onMessage(messaging, (payload) => {
-    console.log("Message received in foreground:", payload);
-    const { title, body, icon } = payload.notification;
-    new Notification(title, { body, icon });
-});
+// onMessage(messaging, (payload) => {
+//     console.log("Message received in foreground:", payload);
+//     const { title, body, icon } = payload.notification;
+//     new Notification(title, { body, icon });
+// });
 
 // Communication with iframe
 window.addEventListener("message", e => {
