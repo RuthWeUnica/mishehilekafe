@@ -1,10 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* צבע רקע עדין */
+}
+
 #login_btn {
     display: inline-block;
     padding: 12px 24px;
     font-size: 18px;
     font-weight: bold;
     color: white;
-    background: linear-gradient(45deg, #4CAF50, #008CBA);
+    background: linear-gradient(45deg, #0000FF, #FF0000); /* מעבר צבע מכחול לאדום */
     border: none;
     border-radius: 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -14,7 +23,7 @@
 }
 
 #login_btn:hover {
-    background: linear-gradient(45deg, #45A049, #005F8D);
+    background: linear-gradient(45deg, #0000CC, #CC0000); /* מעבר צבע כהה יותר */
     transform: scale(1.05);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
@@ -23,6 +32,7 @@
     transform: scale(0.95);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 
 iframe {
     overflow: hidden;
