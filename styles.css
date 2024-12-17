@@ -20,6 +20,7 @@ body {
     transition: all 0.3s ease;
     width: 150px; /* רוחב כפתור גדול */
     height: 150px; /* גובה כפתור גדול */
+    display: block;
 }
 
 
@@ -28,7 +29,6 @@ body {
     width: 80%; /* התמונה תשתמש ב-80% מגודל הכפתור */
     height: 80%; /* שמירה על פרופורציות */
     object-fit: contain; /* שמירה על יחס רוחב-גובה נכון */
-    display: block;
 }
 
 iframe {
