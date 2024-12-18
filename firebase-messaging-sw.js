@@ -52,6 +52,8 @@ onBackgroundMessage(messaging, (payload) => {
 self.addEventListener('notificationclick', function (event) {
   console.log("notification clicked!", event);
   event.notification.close(); // סוגר את הנוטיפיקציה
-  self.clients.openWindow();
+  event.waitUntil(
+    clients.openWindow("/index.html")  // פותח את ה-PWA מהדף הראשי
+  );
 
 });
