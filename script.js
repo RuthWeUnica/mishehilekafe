@@ -174,6 +174,7 @@ document.getElementById("login_btn").addEventListener("click",(e)=>{
 document.getElementById('notify-button').addEventListener('click', function() {
     Notification.requestPermission().then((permission) => {
         if (permission === 'granted') {
+            getFCMToken();
             console.log('Notifications allowed');
         } else {
             console.log('Notifications denied');
