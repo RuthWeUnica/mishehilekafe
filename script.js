@@ -106,16 +106,16 @@ function getFCMToken() {
                     console.log("FCM Token:", currentToken);
                     deviceToken = currentToken;
                     updateDeviceToken(memberId, currentToken);
-                    document.getElementById("token").innerHTML = `token: ${currentToken}`
+                    // document.getElementById("token").innerHTML = `token: ${currentToken}`
                 } else {
-                    document.getElementById("token").innerHTML = `token: no token`
+                    // document.getElementById("token").innerHTML = `token: no token`
 
                     console.warn("No registration token available. Request permission to generate one.");
                 }
                 document.getElementById('login_btn').disabled = false;
             })
             .catch((err) => {
-                document.getElementById("token").innerHTML = `token: no token ${err}`
+                // document.getElementById("token").innerHTML = `token: no token ${err}`
                 document.getElementById('login_btn').disabled = false;
                 console.error("An error occurred while retrieving the FCM token:", err);
             });
