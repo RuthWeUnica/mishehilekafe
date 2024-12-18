@@ -23,9 +23,11 @@ console.log("messeging in script.js", messaging);
 // Request Notification Permission
 Notification.requestPermission().then(permission => {
     if (permission === "granted") {
+        document.getElementById("notify-button").innerHTML = "התראות פועלות עבור האפליקציה!";
         console.log("Notification permission granted!!!))).");
-        // getFCMToken();
+        getFCMToken();
     } else {
+        document.getElementById('login_btn').disabled = false;
         console.log("Notification permission denied.");
     }
 });
@@ -33,13 +35,13 @@ Notification.requestPermission().then(permission => {
 
 // Register Service Workers
 if ('serviceWorker' in navigator && 'PushManager' in window) {
-    
+
     window.addEventListener('load', () => {
-         navigator.serviceWorker.register('sw.js', { type: 'module' })
+        navigator.serviceWorker.register('sw.js', { type: 'module' })
             .then(registration => {
                 console.log('Service Worker registered successfully:((', registration);
-        
-             
+
+
             })
             .catch(error => {
                 console.log('Service Worker registration failed: ', error);
@@ -47,18 +49,19 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
         navigator.serviceWorker.register('firebase-messaging-sw.js', { type: 'module' })
             .then((registration) => {
-                  
+
                 // sendMessageToServiceWorker();
                 console.log('Firebase Messaging Service Worker registered successfully:))', registration);
                 getFCMToken();
-                 // loadIframe();
-          
+                // loadIframe();
+
             })
             .catch((err) => {
                 console.error('Firebase Messaging Service Worker registration failed:', err);
             });
     });
 } else {
+    document.getElementById('login_btn').disabled = false;
     console.log('Push notifications are not supported in this browser.');
 }
 
@@ -83,7 +86,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 //   const iframe = document.getElementById('wix-iframe');
 //   iframe.src = 'https://ruthweunica.github.io/mishehilekafe/'; // הצב כאן את ה-URL הרצוי ל-iframe
 //  console.log("switch to misheile");
-   
+
 // }
 
 // Function to get the FCM Token
@@ -108,10 +111,11 @@ function getFCMToken() {
 
                     console.warn("No registration token available. Request permission to generate one.");
                 }
+                document.getElementById('login_btn').disabled = false;
             })
             .catch((err) => {
                 document.getElementById("token").innerHTML = `token: no token ${err}`
-
+                document.getElementById('login_btn').disabled = false;
                 console.error("An error occurred while retrieving the FCM token:", err);
             });
     });
@@ -131,7 +135,7 @@ window.addEventListener("message", e => {
         console.log("Received memberId from Wix iframe:", e.data.memberId);
         memberId = e.data.memberId;
         updateDeviceToken(memberId, deviceToken);
-    } 
+    }
 });
 
 
@@ -166,18 +170,20 @@ async function updateDeviceToken(memberId, deviceToken) {
         console.error('Error updating device token:', error);
     }
 }
-document.getElementById("login_btn").addEventListener("click",(e)=>{
-    console.log("device token to quaryParam",deviceToken);
+document.getElementById("login_btn").addEventListener("click", (e) => {
+    console.log("device token to quaryParam", deviceToken);
     window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}`;
 })
 
-document.getElementById('notify-button').addEventListener('click', function() {
+document.getElementById('notify-button').addEventListener('click', function () {
     Notification.requestPermission().then((permission) => {
         if (permission === 'granted') {
+            document.getElementById("notify-button").innerHTML = "התראות פועלות עבור האפליקציה!";
             getFCMToken();
             console.log('Notifications allowed');
         } else {
             console.log('Notifications denied');
+            document.getElementById('login_btn').disabled = false;
         }
     });
 });
