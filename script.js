@@ -4,6 +4,7 @@ import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/fireb
 
 let memberId = "";
 let deviceToken = "";
+let PWA = "false";
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDSllBt0vuMT8VboviUDRKF3k1XyheQPcs",
@@ -172,7 +173,7 @@ async function updateDeviceToken(memberId, deviceToken) {
 }
 document.getElementById("login_btn").addEventListener("click", (e) => {
     console.log("device token to quaryParam", deviceToken);
-    window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}`;
+    window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}&isPWA=${PWA}`;
 })
 
 document.getElementById('notify-button').addEventListener('click', function () {
@@ -187,6 +188,16 @@ document.getElementById('notify-button').addEventListener('click', function () {
         }
     });
 });
+
+function isPWA() {
+    return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+}
+
+// מציג את ההודעה אם רץ כ-PWA
+if (isPWA()) {
+    PWA = "true";
+    document.getElementById('pwa-message').style.display = 'block';
+}
 
 
 
