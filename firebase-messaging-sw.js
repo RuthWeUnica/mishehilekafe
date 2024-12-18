@@ -52,8 +52,22 @@ onBackgroundMessage(messaging, (payload) => {
 self.addEventListener('notificationclick', function (event) {
   console.log("notification clicked!", event);
   event.notification.close(); // סוגר את הנוטיפיקציה
+  let url = "https://ruthweunica.github.io/mishehilekafe/";
   event.waitUntil(
-    self.clients.openWindow("/index.html")  // פותח את ה-PWA מהדף הראשי
+    clients.matchAll({ includeUncontrolled: true, type: 'window' }).then(windowClients => {
+      // בודק אם יש חלון/טאב פתוח עם ה-URL המבוקש
+      for (var i = 0; i < windowClients.length; i++) {
+        var client = windowClients[i];
+        // אם נמצא טאב עם ה-URL, מחזיר פוקוס לחלון הזה
+        if (client.url === url && 'focus' in client) {
+          return client.focus();
+        }
+      }
+      // אם אין חלון מתאים, פותח חלון חדש עם ה-URL
+      if (clients.openWindow) {
+        return clients.openWindow(url);
+      }
+    })
   );
 
 });
