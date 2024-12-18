@@ -43,10 +43,13 @@ onBackgroundMessage(messaging, (payload) => {
   const notificationTitle = payload.data.title;
   const notificationOptions = {
     body: payload.data.body,
-    icon: 'singleCoffeeCup.png'
+    icon: 'singleCoffeeCup.png',
+    data: {
+      url: "https://github.com/RuthWeUnica/mishehilekafe"
+    }
   };
 
-  self.registration.showNotification(notificationTitle, notificationOptions,{onclick: (e)=>{showNotification(payload)}});
+  self.registration.showNotification(notificationTitle, notificationOptions);
 });
 
 self.addEventListener('notificationclick', function (event) {
