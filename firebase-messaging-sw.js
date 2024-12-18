@@ -46,7 +46,7 @@ onBackgroundMessage(messaging, (payload) => {
     icon: 'singleCoffeeCup.png'
   };
 
-  self.registration.showNotification(notificationTitle, notificationOptions);
+  self.registration.showNotification(notificationTitle, notificationOptions,{onclick: (e)=>{showNotification(payload)}});
 });
 
 self.addEventListener('notificationclick', function (event) {
@@ -71,3 +71,7 @@ self.addEventListener('notificationclick', function (event) {
   );
 
 });
+
+function openPWA(notification){
+console.log("openPWA",notification);
+}
