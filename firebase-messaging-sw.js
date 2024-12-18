@@ -52,6 +52,6 @@ onBackgroundMessage(messaging, (payload) => {
 self.addEventListener('notificationclick', function (event) {
   console.log("notification clicked!", event);
   event.notification.close(); // סוגר את הנוטיפיקציה
-  clients.openWindow("/index.html");
+  self.clients.openWindow();
 
 });
