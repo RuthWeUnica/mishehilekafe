@@ -28,14 +28,14 @@ const firebaseConfig = {
 //                     console.log('Error fetching alternate URL:', error);
 //                     return new Response("Failed to fetch alternate URL.", { status: 500 });
 //                 })
-          
+
 //         );
 //     }
 // });
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
-console.log("messaging",messaging);
+console.log("messaging", messaging);
 
 // Handle background messages
 // onBackgroundMessage(messaging, (payload) => {
@@ -48,3 +48,10 @@ console.log("messaging",messaging);
 
 //   self.registration.showNotification(notificationTitle, notificationOptions);
 // });
+
+self.addEventListener('notificationclick', function (event) {
+  console.log("notification clicked!", event);
+  event.notification.close(); // סוגר את הנוטיפיקציה
+  self.clients.openWindow("https://www.mishehilekafe.co.il/");
+
+});
