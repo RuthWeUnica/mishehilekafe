@@ -45,7 +45,7 @@ onBackgroundMessage(messaging, (payload) => {
     body: payload.data.body,
     icon: 'singleCoffeeCup.png',
     data: {
-      url: "https://github.com/RuthWeUnica/mishehilekafe"
+      url: payload.data.url
     }
   };
 
@@ -55,7 +55,7 @@ onBackgroundMessage(messaging, (payload) => {
 self.addEventListener('notificationclick', function (event) {
   console.log("notification clicked!", event);
   event.notification.close(); // סוגר את הנוטיפיקציה
-  let url = "https://ruthweunica.github.io/mishehilekafe/";
+  let url = event.notification.data.url;
   event.waitUntil(
     clients.matchAll({ includeUncontrolled: true, type: 'window' }).then(windowClients => {
       // בודק אם יש חלון/טאב פתוח עם ה-URL המבוקש
