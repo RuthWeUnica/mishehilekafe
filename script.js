@@ -171,5 +171,15 @@ document.getElementById("login_btn").addEventListener("click",(e)=>{
     window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}`;
 })
 
+document.getElementById('notify-button').addEventListener('click', function() {
+    Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+            console.log('Notifications allowed');
+        } else {
+            console.log('Notifications denied');
+        }
+    });
+});
+
 
 
