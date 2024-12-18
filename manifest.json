@@ -2,7 +2,7 @@
     "name": "MishehiLeKafe",
     "short_name": "מישהי לקפה",
     "start_url": "index.html",
-    "display": "fullscreen",
+    "display": "standalone",
     "background_color": "#fff",
     "theme_color": "#333",
     "icons": [
