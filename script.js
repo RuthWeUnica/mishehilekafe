@@ -199,7 +199,7 @@ if (isPWA()) {
     document.getElementById('pwa-message').style.display = 'block';
 }
 
-function showStep(imageSrc) {
+export function showStep(imageSrc) {
     const instructionDiv = document.getElementById("instruction");
     const instructionImage = document.getElementById("instruction-image");
 
