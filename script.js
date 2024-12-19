@@ -178,6 +178,8 @@ document.getElementById("login_btn").addEventListener("click", (e) => {
 
 document.getElementById("android_btn").addEventListener("click", (e) => {
     console.log("click on android btn");
+    console.log(document.getElementById("android_btn2"));
+
     let imageSrc = 'Instructions2.png';
     const instructionDiv = document.getElementById("instruction");
     const instructionImage = document.getElementById("instruction-image");
