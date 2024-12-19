@@ -191,7 +191,7 @@ document.getElementById("android_btn").addEventListener("click", (e) => {
     instructionDiv.style.height = "388px"; // גובה פתוח
     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
 })
-document.getElementById("android_btn2").addEventListener("click", (e) => {
+document.getElementById("ios_btn").addEventListener("click", (e) => {
     console.log("click on android btn");
     console.log(document.getElementById("android_btn2"));
 
@@ -237,7 +237,12 @@ function isPWA() {
 // מציג את ההודעה אם רץ כ-PWA
 if (isPWA()) {
     PWA = "true";
-    document.getElementById('pwa-message').style.display = 'block';
+    document.getElementById('android_btn').style.display = none;
+    document.getElementById('ios_btn').style.display = none;
+}
+else{
+    document.getElementById('login_btn').style.display = none;
+
 }
 
 
