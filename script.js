@@ -24,7 +24,7 @@ console.log("messeging in script.js", messaging);
 // Request Notification Permission
 Notification.requestPermission().then(permission => {
     if (permission === "granted") {
-        document.getElementById("notify-button").innerHTML = "התראות פועלות עבור האפליקציה!";
+        document.getElementById("notify-button").style.display = "none";
         console.log("Notification permission granted!!!))).");
         getFCMToken();
     } else {
@@ -244,6 +244,8 @@ if (isPWA()) {
 else{
     console.log("not pwa!!");
     document.getElementById('login_btn').style.display = "none";
+    document.getElementById("notify-button").style.display = "none";
+
 
 }
 
