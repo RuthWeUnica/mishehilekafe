@@ -176,19 +176,19 @@ document.getElementById("login_btn").addEventListener("click", (e) => {
     window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}&isPWA=${PWA}`;
 })
 
-// document.getElementById("login_btn2").addEventListener("click", (e) => {
-//     console.log("click on android btn");
-//     let imageSrc = 'Instructions2.png';
-//     const instructionDiv = document.getElementById("instruction");
-//     const instructionImage = document.getElementById("instruction-image");
+document.getElementById("android_btn").addEventListener("click", (e) => {
+    console.log("click on android btn");
+    let imageSrc = 'Instructions2.png';
+    const instructionDiv = document.getElementById("instruction");
+    const instructionImage = document.getElementById("instruction-image");
 
-//     instructionImage.src = imageSrc;
+    instructionImage.src = imageSrc;
 
-//     // הצגת הדיב עם אנימציה
-//     instructionDiv.style.display = "flex";
-//     instructionDiv.style.height = "388px"; // גובה פתוח
-//     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
-// })
+    // הצגת הדיב עם אנימציה
+    instructionDiv.style.display = "flex";
+    instructionDiv.style.height = "388px"; // גובה פתוח
+    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
+})
 
 document.getElementById('notify-button').addEventListener('click', function () {
     Notification.requestPermission().then((permission) => {
@@ -263,5 +263,5 @@ export function try1() {
     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
 }
 
-window.try1 = try1;
+
 
