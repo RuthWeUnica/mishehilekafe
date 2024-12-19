@@ -191,6 +191,21 @@ document.getElementById("android_btn").addEventListener("click", (e) => {
     instructionDiv.style.height = "388px"; // גובה פתוח
     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
 })
+document.getElementById("android_btn2").addEventListener("click", (e) => {
+    console.log("click on android btn");
+    console.log(document.getElementById("android_btn2"));
+
+    let imageSrc = 'Instructions2.png';
+    const instructionDiv = document.getElementById("instruction");
+    const instructionImage = document.getElementById("instruction-image");
+
+    instructionImage.src = imageSrc;
+
+    // הצגת הדיב עם אנימציה
+    instructionDiv.style.display = "flex";
+    instructionDiv.style.height = "388px"; // גובה פתוח
+    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
+})
 
 document.getElementById('notify-button').addEventListener('click', function () {
     Notification.requestPermission().then((permission) => {
@@ -227,32 +242,7 @@ document.getElementById('instruction').addEventListener('click', (e) => {
     }, 500);
 })
 
-document.getElementById("android_btn").addEventListener("click", (e) => {
-    console.log("click on android btn");
-    let imageSrc = 'Instructions2.png';
-    const instructionDiv = document.getElementById("instruction");
-    const instructionImage = document.getElementById("instruction-image");
 
-    instructionImage.src = imageSrc;
-
-    // הצגת הדיב עם אנימציה
-    instructionDiv.style.display = "flex";
-    instructionDiv.style.height = "388px"; // גובה פתוח
-    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
-})
-document.getElementById("android_btn2").addEventListener("click", (e) => {
-    console.log("click on android btn");
-    let imageSrc = 'Instructions2.png';
-    const instructionDiv = document.getElementById("instruction");
-    const instructionImage = document.getElementById("instruction-image");
-
-    instructionImage.src = imageSrc;
-
-    // הצגת הדיב עם אנימציה
-    instructionDiv.style.display = "flex";
-    instructionDiv.style.height = "388px"; // גובה פתוח
-    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
-})
 
 document.getElementById("ios_btn").addEventListener("click", (e) => {
     console.log("click on ios btn");
@@ -267,6 +257,27 @@ document.getElementById("ios_btn").addEventListener("click", (e) => {
     instructionDiv.style.height = "388px"; // גובה פתוח
     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
 })
+
+// function handleClick(buttonId) {
+//     console.log(`click on ${buttonId}`);
+//     let imageSrc = 'Instructions2.png';
+//     const instructionDiv = document.getElementById("instruction");
+//     const instructionImage = document.getElementById("instruction-image");
+
+//     instructionImage.src = imageSrc;
+
+//     instructionDiv.style.display = "flex";
+//     instructionDiv.style.height = "388px";
+//     instructionDiv.style.transition = "height 0.5s ease";
+// }
+
+// ["android_btn", "android_btn2"].forEach(id => {
+//     const button = document.getElementById(id);
+//     if (button) {
+//         console.log(button);
+//         button.addEventListener("click", () => handleClick(id));
+//     }
+// });
 
 
 
