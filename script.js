@@ -221,7 +221,7 @@ function hideStep() {
     }, 500); 
 }
 
-document.getElementById("android-btn").addEventListener('click',(e)=>{
+document.getElementById("android_btn").addEventListener("click",(e)=>{
     console.log("click on android btn");
    let imageSrc = 'Instructions2.png';
     const instructionDiv = document.getElementById("instruction");
