@@ -253,19 +253,7 @@ document.getElementById("ios_btn").addEventListener("click", (e) => {
     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
 })
 
-export function try1() {
-    console.log("click on android btn");
-    let imageSrc = 'Instructions2.png';
-    const instructionDiv = document.getElementById("instruction");
-    const instructionImage = document.getElementById("instruction-image");
 
-    instructionImage.src = imageSrc;
-
-    // הצגת הדיב עם אנימציה
-    instructionDiv.style.display = "flex";
-    instructionDiv.style.height = "388px"; // גובה פתוח
-    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
-}
 
 
 
