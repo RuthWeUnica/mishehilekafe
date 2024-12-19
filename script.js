@@ -238,6 +238,19 @@ document.getElementById("android_btn").addEventListener("click", (e) => {
     instructionDiv.style.height = "388px"; // גובה פתוח
     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
 })
+document.getElementById("android_btn2").addEventListener("click", (e) => {
+    console.log("click on android btn");
+    let imageSrc = 'Instructions2.png';
+    const instructionDiv = document.getElementById("instruction");
+    const instructionImage = document.getElementById("instruction-image");
+
+    instructionImage.src = imageSrc;
+
+    // הצגת הדיב עם אנימציה
+    instructionDiv.style.display = "flex";
+    instructionDiv.style.height = "388px"; // גובה פתוח
+    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
+})
 
 document.getElementById("ios_btn").addEventListener("click", (e) => {
     console.log("click on ios btn");
