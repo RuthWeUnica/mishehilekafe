@@ -20,6 +20,24 @@ const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 
 console.log("messeging in script.js", messaging);
+if (isPWA()) {
+    console.log("pwa!!");
+    PWA = "true";
+    document.getElementById('android_btn').style.display = "none";
+    document.getElementById('ios_btn').style.display = "none";
+    document.getElementById('login_btn').style.display = "flex";
+    document.getElementById("notify-button").style.display = "flex";
+    document.getElementById("isPWA").innerHTML = "TRUE";
+}
+else{
+    console.log("not pwa!!");
+    document.getElementById("isPWA").innerHTML = "FALSE";
+    document.getElementById('login_btn').style.display = "none";
+    document.getElementById("notify-button").style.display = "none";
+    document.getElementById('android_btn').style.display = "flex";
+    document.getElementById('ios_btn').style.display = "flex";
+  
+}
 
 // Request Notification Permission
 Notification.requestPermission().then(permission => {
@@ -235,24 +253,7 @@ function isPWA() {
 }
 
 // מציג את ההודעה אם רץ כ-PWA
-if (isPWA()) {
-    console.log("pwa!!");
-    PWA = "true";
-    document.getElementById('android_btn').style.display = "none";
-    document.getElementById('ios_btn').style.display = "none";
-    document.getElementById('login_btn').style.display = "flex";
-    document.getElementById("notify-button").style.display = "flex";
-    document.getElementById("isPWA").innerHTML = "TRUE";
-}
-else{
-    console.log("not pwa!!");
-    document.getElementById("isPWA").innerHTML = "FALSE";
-    document.getElementById('login_btn').style.display = "none";
-    document.getElementById("notify-button").style.display = "none";
-    document.getElementById('android_btn').style.display = "flex";
-    document.getElementById('ios_btn').style.display = "flex";
-  
-}
+
 
 
 // function handleClick(buttonId) {
