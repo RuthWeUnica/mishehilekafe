@@ -122,7 +122,7 @@ body {
 
 /* עיצוב הכפתורים */
 .step-button {
-    display: flex;           /* הצגת תוכן הכפתור כ-flex */
+    display: none;           /* הצגת תוכן הכפתור כ-flex */
     align-items: center;     /* יישור אנכי של תוכן הכפתור */
     justify-content: center; /* יישור אופקי של תוכן הכפתור */
     background-color: #d2ffa0;
