@@ -222,6 +222,7 @@ function hideStep() {
 }
 
 document.getElementById("android-btn").addEventListener('click',(e)=>{
+    console.log("click on android btn");
    let imageSrc = 'Instructions2.png';
     const instructionDiv = document.getElementById("instruction");
     const instructionImage = document.getElementById("instruction-image");
