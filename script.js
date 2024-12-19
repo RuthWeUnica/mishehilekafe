@@ -53,7 +53,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
                 // sendMessageToServiceWorker();
                 console.log('Firebase Messaging Service Worker registered successfully:))', registration);
-                getFCMToken();
+                // getFCMToken();
                 // loadIframe();
 
             })
@@ -246,11 +246,12 @@ if (isPWA()) {
 }
 else{
     console.log("not pwa!!");
+    document.getElementById("isPWA").innerHTML = "FALSE";
     document.getElementById('login_btn').style.display = "none";
     document.getElementById("notify-button").style.display = "none";
     document.getElementById('android_btn').style.display = "flex";
     document.getElementById('ios_btn').style.display = "flex";
-    document.getElementById("isPWA").innerHTML = "FALSE";
+  
 }
 
 
