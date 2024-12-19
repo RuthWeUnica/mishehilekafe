@@ -15,14 +15,37 @@
     <!-- <button onclick="window.location.href='https://www.mishehilekafe.co.il/';">
         התחברות
     </button> -->
-    <button id="login_btn" disabled>
+    <!-- <button id="login_btn" disabled>
         <img src="icons/logobig.svg" alt="icon" class="button-icon">
     </button>
-    <button id="notify-button" style="direction: rtl; text-align: right;">אין הרשאה להתראות. לחצי כאן כדי לאפשר!</button>
+   -->
     <!-- <div id="pwa-message" style="display: none;">האפליקציה רצה כ-PWA</div>
 <div id="instruction"> -->
 
-</div>
+    <!-- </div> -->
+    <button id="notify-button" style="direction: rtl; text-align: right;">אין הרשאה להתראות. לחצי כאן כדי
+        לאפשר!</button>
+    <div id="initial-screen">
+        <button id="logo-button">
+            <img src="logo.png" alt="לוגו" id="logo">
+        </button>
+
+
+         <button id="login_btn" class="step-button">להורדת גרסת iOS</button> 
+
+        <div class="buttons">
+            <button onclick="showStep('Instructions2.png')" class="step-button">
+                <img src="android-icon.png" alt="Android" class="icon">Android להורדת גרסת
+            </button>
+            <button onclick="showStep('instructions.png')" class="step-button">
+                <img src="ios-icon.png" alt="iOS" class="icon">iOS להורדת גרסת
+            </button>
+        </div>
+    </div>
+
+    <div id="instruction" style="display: none;" onclick="hideStep()">
+        <img id="instruction-image" src="" alt="הוראות התקנה">
+    </div>
 
 </body>
 

@@ -199,5 +199,26 @@ if (isPWA()) {
     document.getElementById('pwa-message').style.display = 'block';
 }
 
+function showStep(imageSrc) {
+    const instructionDiv = document.getElementById("instruction");
+    const instructionImage = document.getElementById("instruction-image");
+
+    instructionImage.src = imageSrc;
+
+    // הצגת הדיב עם אנימציה
+    instructionDiv.style.display = "flex";
+    instructionDiv.style.height = "388px"; // גובה פתוח
+    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
+}
+
+function hideStep() {
+    const instructionDiv = document.getElementById("instruction");
+
+    // סגירת הדיב
+    instructionDiv.style.height = "0";
+    setTimeout(() => {
+        instructionDiv.style.display = "none";
+    }, 500); 
+}
 
 
