@@ -180,7 +180,7 @@ document.getElementById("android_btn").addEventListener("click", (e) => {
     console.log("click on android btn");
     console.log(document.getElementById("android_btn2"));
 
-    let imageSrc = 'Instructions.svg';
+    let imageSrc = 'instructions.svg';
     const instructionDiv = document.getElementById("instruction");
     const instructionImage = document.getElementById("instruction-image");
 
@@ -195,7 +195,7 @@ document.getElementById("ios_btn").addEventListener("click", (e) => {
     console.log("click on android btn");
     console.log(document.getElementById("android_btn2"));
 
-    let imageSrc = 'Instructions2.svg';
+    let imageSrc = 'instructions2.svg';
     const instructionDiv = document.getElementById("instruction");
     const instructionImage = document.getElementById("instruction-image");
 
