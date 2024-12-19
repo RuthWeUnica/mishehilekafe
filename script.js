@@ -240,15 +240,15 @@ if (isPWA()) {
     PWA = "true";
     document.getElementById('android_btn').style.display = "none";
     document.getElementById('ios_btn').style.display = "none";
-    document.getElementById('login_btn').style.display = "inline-block";
-    document.getElementById("notify-button").style.display = "inline-block";
+    document.getElementById('login_btn').style.display = "flex";
+    document.getElementById("notify-button").style.display = "flex";
 }
 else{
     console.log("not pwa!!");
     document.getElementById('login_btn').style.display = "none";
     document.getElementById("notify-button").style.display = "none";
-    document.getElementById('android_btn').style.display = "inline-block";
-    document.getElementById('ios_btn').style.display = "inline-block";
+    document.getElementById('android_btn').style.display = "flex";
+    document.getElementById('ios_btn').style.display = "flex";
 
 
 }
