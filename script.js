@@ -213,19 +213,9 @@ if (isPWA()) {
     document.getElementById('pwa-message').style.display = 'block';
 }
 
-export function showStep(imageSrc) {
-    const instructionDiv = document.getElementById("instruction");
-    const instructionImage = document.getElementById("instruction-image");
 
-    instructionImage.src = imageSrc;
-
-    // הצגת הדיב עם אנימציה
-    instructionDiv.style.display = "flex";
-    instructionDiv.style.height = "388px"; // גובה פתוח
-    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
-}
-
-document.getElementById('instruction').addEventListener('click', e => {
+document.getElementById('instruction').addEventListener('click', (e) => {
+    console.log("close instruction!!");
     const instructionDiv = document.getElementById("instruction");
 
     // סגירת הדיב
@@ -238,6 +228,20 @@ document.getElementById('instruction').addEventListener('click', e => {
 document.getElementById("android_btn").addEventListener("click", (e) => {
     console.log("click on android btn");
     let imageSrc = 'Instructions2.png';
+    const instructionDiv = document.getElementById("instruction");
+    const instructionImage = document.getElementById("instruction-image");
+
+    instructionImage.src = imageSrc;
+
+    // הצגת הדיב עם אנימציה
+    instructionDiv.style.display = "flex";
+    instructionDiv.style.height = "388px"; // גובה פתוח
+    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
+})
+
+document.getElementById("ios_btn").addEventListener("click", (e) => {
+    console.log("click on ios btn");
+    let imageSrc = 'instructions.png';
     const instructionDiv = document.getElementById("instruction");
     const instructionImage = document.getElementById("instruction-image");
 
