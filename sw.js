@@ -7,7 +7,9 @@ const cachedAssets = [
   'script.js',
   'icons/logobig.svg',
   'singleCoffeeCup_copy.png',
-  'singleCoffeeCup.png'
+  'singleCoffeeCup.png',
+  'https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap',
+  'https://fonts.gstatic.com/s/assistant/v20/-tDE7fhFq-4E5R10jg3fmmk0k.woff2'
 ];
 
 

@@ -45,7 +45,7 @@ onBackgroundMessage(messaging, (payload) => {
     body: payload.data.body,
     icon: 'singleCoffeeCup.png',
     data: {
-      url: payload.data.url
+      url: payload.data?.url || "https://www.mishehilekafe.co.il/"
     }
   };
 
@@ -75,6 +75,4 @@ self.addEventListener('notificationclick', function (event) {
 
 });
 
-function openPWA(notification){
-console.log("openPWA",notification);
-}
+
