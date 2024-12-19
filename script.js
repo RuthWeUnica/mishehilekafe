@@ -225,7 +225,7 @@ export function showStep(imageSrc) {
     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
 }
 
-function hideStep() {
+document.getElementById('instruction').addEventListener('click', e => {
     const instructionDiv = document.getElementById("instruction");
 
     // סגירת הדיב
@@ -233,7 +233,7 @@ function hideStep() {
     setTimeout(() => {
         instructionDiv.style.display = "none";
     }, 500);
-}
+})
 
 document.getElementById("android_btn").addEventListener("click", (e) => {
     console.log("click on android btn");
