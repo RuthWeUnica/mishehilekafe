@@ -236,11 +236,13 @@ function isPWA() {
 
 // מציג את ההודעה אם רץ כ-PWA
 if (isPWA()) {
+    console.log("pwa!!");
     PWA = "true";
     document.getElementById('android_btn').style.display = none;
     document.getElementById('ios_btn').style.display = none;
 }
 else{
+    console.log("not pwa!!");
     document.getElementById('login_btn').style.display = none;
 
 }
