@@ -206,6 +206,16 @@ document.getElementById("android_btn2").addEventListener("click", (e) => {
     instructionDiv.style.height = "388px"; // גובה פתוח
     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
 })
+document.getElementById('instruction').addEventListener('click', (e) => {
+    console.log("close instruction!!");
+    const instructionDiv = document.getElementById("instruction");
+
+    // סגירת הדיב
+    instructionDiv.style.height = "0";
+    setTimeout(() => {
+        instructionDiv.style.display = "none";
+    }, 500);
+})
 
 document.getElementById('notify-button').addEventListener('click', function () {
     Notification.requestPermission().then((permission) => {
@@ -231,16 +241,7 @@ if (isPWA()) {
 }
 
 
-document.getElementById('instruction').addEventListener('click', (e) => {
-    console.log("close instruction!!");
-    const instructionDiv = document.getElementById("instruction");
 
-    // סגירת הדיב
-    instructionDiv.style.height = "0";
-    setTimeout(() => {
-        instructionDiv.style.display = "none";
-    }, 500);
-})
 
 
 
