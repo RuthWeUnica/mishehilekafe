@@ -242,6 +242,7 @@ if (isPWA()) {
     document.getElementById('ios_btn').style.display = "none";
     document.getElementById('login_btn').style.display = "flex";
     document.getElementById("notify-button").style.display = "flex";
+    document.getElementById("isPWA").innerHTML = "TRUE";
 }
 else{
     console.log("not pwa!!");
@@ -249,8 +250,7 @@ else{
     document.getElementById("notify-button").style.display = "none";
     document.getElementById('android_btn').style.display = "flex";
     document.getElementById('ios_btn').style.display = "flex";
-
-
+    document.getElementById("isPWA").innerHTML = "FALSE";
 }
 
 
