@@ -176,6 +176,11 @@ document.getElementById("login_btn").addEventListener("click", (e) => {
     window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}&isPWA=${PWA}`;
 })
 
+document.getElementById("login_btn2").addEventListener("click", (e) => {
+    console.log("device token to quaryParam", deviceToken);
+    window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}&isPWA=${PWA}`;
+})
+
 document.getElementById('notify-button').addEventListener('click', function () {
     Notification.requestPermission().then((permission) => {
         if (permission === 'granted') {
