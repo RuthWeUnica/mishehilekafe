@@ -156,6 +156,19 @@ window.addEventListener("message", e => {
         memberId = e.data.memberId;
         updateDeviceToken(memberId, deviceToken);
     }
+    if (e.data === "enter") {
+        window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}&isPWA=${PWA}`;
+    }
+    if (e.data === "requestPermission") {
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                console.log("Notification permission granted!!!))).");
+                getFCMToken();
+            } else {
+                console.log("Notification permission denied.");
+            }
+        });
+    }
 });
 
 
