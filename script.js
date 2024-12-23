@@ -40,16 +40,16 @@ else{
 }
 
 // Request Notification Permission
-Notification.requestPermission().then(permission => {
-    if (permission === "granted") {
-        document.getElementById("notify-button").style.display = "none";
-        console.log("Notification permission granted!!!))).");
-        getFCMToken();
-    } else {
-        document.getElementById('login_btn').disabled = false;
-        console.log("Notification permission denied.");
-    }
-});
+// Notification.requestPermission().then(permission => {
+//     if (permission === "granted") {
+//         document.getElementById("notify-button").style.display = "none";
+//         console.log("Notification permission granted!!!))).");
+//         getFCMToken();
+//     } else {
+//         document.getElementById('login_btn').disabled = false;
+//         console.log("Notification permission denied.");
+//     }
+// });
 
 
 // Register Service Workers
