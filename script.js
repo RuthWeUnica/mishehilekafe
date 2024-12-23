@@ -27,7 +27,7 @@ if (isPWA()) {
     // document.getElementById('login_btn').style.display = "flex";
     // document.getElementById("notify-button").style.display = "flex";
     // document.getElementById("isPWA").innerHTML = "TRUE";
-    document.getElementById("iframe_enter").src = "https://www.mishehilekafe.co.il/enter-pwa";
+    document.getElementById("iframe_enter").src = `https://www.mishehilekafe.co.il/enter-pwa`;
 }
 else {
     console.log("not pwa!!");
@@ -125,6 +125,7 @@ function getFCMToken() {
                     console.log("FCM Token:", currentToken);
                     deviceToken = currentToken;
                     updateDeviceToken(memberId, currentToken);
+                    document.getElementById("iframe_enter").src = `https://www.mishehilekafe.co.il/enter-pwa?notification="true"`
                     // document.getElementById("token").innerHTML = `token: ${currentToken}`
                 } else {
                     // document.getElementById("token").innerHTML = `token: no token`
