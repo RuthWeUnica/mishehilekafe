@@ -85,6 +85,14 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     console.log('Push notifications are not supported in this browser.');
 }
 
+if ('Notification' in window) {
+    if (Notification.permission === "granted") {
+        console.log("permission granted, change url");
+        document.getElementById("iframe_enter").src = `https://www.mishehilekafe.co.il/enter-pwa?notification="true"`
+    } else {
+        console.log('דפדפן זה אינו תומך בנוטיפיקציות.');
+    }
+}
 
 // function sendMessageToServiceWorker() {
 //     console.log("came into messageeeeeeeeeeeeeeee:)))))))))");
