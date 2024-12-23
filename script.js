@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js";
 
-
 let memberId = "";
 let deviceToken = "";
 let PWA = "false";
@@ -23,20 +22,22 @@ console.log("messeging in script.js", messaging);
 if (isPWA()) {
     console.log("pwa!!");
     PWA = "true";
-    document.getElementById('android_btn').style.display = "none";
-    document.getElementById('ios_btn').style.display = "none";
-    document.getElementById('login_btn').style.display = "flex";
-    document.getElementById("notify-button").style.display = "flex";
-    document.getElementById("isPWA").innerHTML = "TRUE";
+    // document.getElementById('android_btn').style.display = "none";
+    // document.getElementById('ios_btn').style.display = "none";
+    // document.getElementById('login_btn').style.display = "flex";
+    // document.getElementById("notify-button").style.display = "flex";
+    // document.getElementById("isPWA").innerHTML = "TRUE";
+    document.getElementById("iframe_enter").src = "https://www.mishehilekafe.co.il/enter-pwa";
 }
-else{
+else {
     console.log("not pwa!!");
-    document.getElementById("isPWA").innerHTML = "FALSE";
-    document.getElementById('login_btn').style.display = "none";
-    document.getElementById("notify-button").style.display = "none";
-    document.getElementById('android_btn').style.display = "flex";
-    document.getElementById('ios_btn').style.display = "flex";
-  
+    // document.getElementById("isPWA").innerHTML = "FALSE";
+    // document.getElementById('login_btn').style.display = "none";
+    // document.getElementById("notify-button").style.display = "none";
+    // document.getElementById('android_btn').style.display = "flex";
+    // document.getElementById('ios_btn').style.display = "flex";
+    document.getElementById("iframe_enter").src = "https://www.mishehilekafe.co.il/enter-browser";
+
 }
 
 // Request Notification Permission
@@ -80,7 +81,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             });
     });
 } else {
-    document.getElementById('login_btn').disabled = false;
+    // document.getElementById('login_btn').disabled = false;
     console.log('Push notifications are not supported in this browser.');
 }
 
@@ -130,11 +131,11 @@ function getFCMToken() {
 
                     console.warn("No registration token available. Request permission to generate one.");
                 }
-                document.getElementById('login_btn').disabled = false;
+                // document.getElementById('login_btn').disabled = false;
             })
             .catch((err) => {
                 // document.getElementById("token").innerHTML = `token: no token ${err}`
-                document.getElementById('login_btn').disabled = false;
+                // document.getElementById('login_btn').disabled = false;
                 console.error("An error occurred while retrieving the FCM token:", err);
             });
     });
@@ -149,7 +150,7 @@ function getFCMToken() {
 
 // Communication with iframe
 window.addEventListener("message", e => {
-
+    console.log("message", e);
     if (e.data && e.data.memberId) {
         console.log("Received memberId from Wix iframe:", e.data.memberId);
         memberId = e.data.memberId;
@@ -189,64 +190,64 @@ async function updateDeviceToken(memberId, deviceToken) {
         console.error('Error updating device token:', error);
     }
 }
-document.getElementById("login_btn").addEventListener("click", (e) => {
-    console.log("device token to quaryParam", deviceToken);
-    window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}&isPWA=${PWA}`;
-})
+// document.getElementById("login_btn").addEventListener("click", (e) => {
+//     console.log("device token to quaryParam", deviceToken);
+//     window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}&isPWA=${PWA}`;
+// })
 
-document.getElementById("android_btn").addEventListener("click", (e) => {
-    console.log("click on android btn");
-    console.log(document.getElementById("android_btn2"));
+// document.getElementById("android_btn").addEventListener("click", (e) => {
+//     console.log("click on android btn");
+//     console.log(document.getElementById("android_btn2"));
 
-    let imageSrc = 'instructions.svg';
-    const instructionDiv = document.getElementById("instruction");
-    const instructionImage = document.getElementById("instruction-image");
+//     let imageSrc = 'instructions.svg';
+//     const instructionDiv = document.getElementById("instruction");
+//     const instructionImage = document.getElementById("instruction-image");
 
-    instructionImage.src = imageSrc;
+//     instructionImage.src = imageSrc;
 
-    // הצגת הדיב עם אנימציה
-    instructionDiv.style.display = "flex";
-    instructionDiv.style.height = "388px"; // גובה פתוח
-    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
-})
-document.getElementById("ios_btn").addEventListener("click", (e) => {
-    console.log("click on android btn");
-    console.log(document.getElementById("android_btn2"));
+//     // הצגת הדיב עם אנימציה
+//     instructionDiv.style.display = "flex";
+//     instructionDiv.style.height = "388px"; // גובה פתוח
+//     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
+// })
+// document.getElementById("ios_btn").addEventListener("click", (e) => {
+//     console.log("click on android btn");
+//     console.log(document.getElementById("android_btn2"));
 
-    let imageSrc = 'instructions2.svg';
-    const instructionDiv = document.getElementById("instruction");
-    const instructionImage = document.getElementById("instruction-image");
+//     let imageSrc = 'instructions2.svg';
+//     const instructionDiv = document.getElementById("instruction");
+//     const instructionImage = document.getElementById("instruction-image");
 
-    instructionImage.src = imageSrc;
+//     instructionImage.src = imageSrc;
 
-    // הצגת הדיב עם אנימציה
-    instructionDiv.style.display = "flex";
-    instructionDiv.style.height = "388px"; // גובה פתוח
-    instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
-})
-document.getElementById('instruction').addEventListener('click', (e) => {
-    console.log("close instruction!!");
-    const instructionDiv = document.getElementById("instruction");
+//     // הצגת הדיב עם אנימציה
+//     instructionDiv.style.display = "flex";
+//     instructionDiv.style.height = "388px"; // גובה פתוח
+//     instructionDiv.style.transition = "height 0.5s ease"; // אנימציה חלקה
+// })
+// document.getElementById('instruction').addEventListener('click', (e) => {
+//     console.log("close instruction!!");
+//     const instructionDiv = document.getElementById("instruction");
 
-    // סגירת הדיב
-    instructionDiv.style.height = "0";
-    setTimeout(() => {
-        instructionDiv.style.display = "none";
-    }, 500);
-})
+//     // סגירת הדיב
+//     instructionDiv.style.height = "0";
+//     setTimeout(() => {
+//         instructionDiv.style.display = "none";
+//     }, 500);
+// })
 
-document.getElementById('notify-button').addEventListener('click', function () {
-    Notification.requestPermission().then((permission) => {
-        if (permission === 'granted') {
-            document.getElementById("notify-button").innerHTML = "התראות פועלות עבור האפליקציה!";
-            getFCMToken();
-            console.log('Notifications allowed');
-        } else {
-            console.log('Notifications denied');
-            document.getElementById('login_btn').disabled = false;
-        }
-    });
-});
+// document.getElementById('notify-button').addEventListener('click', function () {
+//     Notification.requestPermission().then((permission) => {
+//         if (permission === 'granted') {
+//             document.getElementById("notify-button").innerHTML = "התראות פועלות עבור האפליקציה!";
+//             getFCMToken();
+//             console.log('Notifications allowed');
+//         } else {
+//             console.log('Notifications denied');
+//             document.getElementById('login_btn').disabled = false;
+//         }
+//     });
+// });
 
 function isPWA() {
     return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
