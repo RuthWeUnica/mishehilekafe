@@ -45,7 +45,7 @@ onBackgroundMessage(messaging, (payload) => {
     body: payload.data.body,
     icon: 'singleCoffeeCup.png',
     data: {
-      url: payload.data?.url || ""
+      url: payload.data?.url
     }
   };
 
