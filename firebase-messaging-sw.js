@@ -45,7 +45,7 @@ onBackgroundMessage(messaging, (payload) => {
     body: payload.data.body,
     icon: 'singleCoffeeCup.png',
     data: {
-      url: payload.data?.url || "https://www.mishehilekafe.co.il/"
+      url: payload.data?.url || ""
     }
   };
 
@@ -56,23 +56,24 @@ self.addEventListener('notificationclick', function (event) {
   console.log("notification clicked!", event);
   event.notification.close(); // סוגר את הנוטיפיקציה
   let url = event.notification.data.url;
-  event.waitUntil(
-    clients.matchAll({ includeUncontrolled: true, type: 'window' }).then(windowClients => {
-      // בודק אם יש חלון/טאב פתוח עם ה-URL המבוקש
-      for (var i = 0; i < windowClients.length; i++) {
-        var client = windowClients[i];
-        // אם נמצא טאב עם ה-URL, מחזיר פוקוס לחלון הזה
-        if (client.url === url && 'focus' in client) {
-          return client.focus();
+  if (url) {
+    event.waitUntil(
+      clients.matchAll({ includeUncontrolled: true, type: 'window' }).then(windowClients => {
+        // בודק אם יש חלון/טאב פתוח עם ה-URL המבוקש
+        for (var i = 0; i < windowClients.length; i++) {
+          var client = windowClients[i];
+          // אם נמצא טאב עם ה-URL, מחזיר פוקוס לחלון הזה
+          if (client.url === url && 'focus' in client) {
+            return client.focus();
+          }
         }
-      }
-      // אם אין חלון מתאים, פותח חלון חדש עם ה-URL
-      if (clients.openWindow) {
-        return clients.openWindow(url);
-      }
-    })
-  );
-
+        // אם אין חלון מתאים, פותח חלון חדש עם ה-URL
+        if (clients.openWindow) {
+          return clients.openWindow(url);
+        }
+      })
+    );
+  }
 });
 
 
