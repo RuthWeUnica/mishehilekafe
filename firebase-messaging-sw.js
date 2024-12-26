@@ -57,23 +57,31 @@ self.addEventListener('notificationclick', function (event) {
   event.notification.close(); // סוגר את הנוטיפיקציה
   let url = event.notification.data.url;
   if (url) {
-    event.waitUntil(
-      clients.matchAll({ includeUncontrolled: true, type: 'window' }).then(windowClients => {
-        // בודק אם יש חלון/טאב פתוח עם ה-URL המבוקש
-        for (var i = 0; i < windowClients.length; i++) {
-          var client = windowClients[i];
-          // אם נמצא טאב עם ה-URL, מחזיר פוקוס לחלון הזה
-          if (client.url === url && 'focus' in client) {
-            return client.focus();
+    if (url.includes("https://wa.me") || url.includes("https://api.whatsapp.com")) {
+      // פותח את הקישור של וואצאפ בחלון חדש
+      event.waitUntil(clients.openWindow(url).then(window => {
+        if (window) {
+          window.focus(); // מוודא פוקוס לחלון אם נפתח
+        }
+      }));
+    } else {
+      // לוגיקה רגילה עבור קישורים אחרים
+      event.waitUntil(
+        clients.matchAll({ includeUncontrolled: true, type: 'window' }).then(windowClients => {
+          for (var i = 0; i < windowClients.length; i++) {
+            var client = windowClients[i];
+            if (client.url === url && 'focus' in client) {
+              return client.focus();
+            }
           }
-        }
-        // אם אין חלון מתאים, פותח חלון חדש עם ה-URL
-        if (clients.openWindow) {
-          return clients.openWindow(url);
-        }
-      })
-    );
+          if (clients.openWindow) {
+            return clients.openWindow(url);
+          }
+        })
+      );
+    }
   }
 });
+
 
 
