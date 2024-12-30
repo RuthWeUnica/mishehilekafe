@@ -68,33 +68,21 @@ if ('Notification' in window) {
 // 📲 הפעלת הקוד בעת טעינת הדף
 console.log("09:26")
 // בודק אם הדף פתוח במצב PWA
-function isRunningAsPWA() {
+
+function isPWA() {
     return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 }
+
 
 // מזהה שינוי במצב התצוגה
 document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
-        if (isRunningAsPWA()) {
-            console.log('🚀 PWA נפתח ישירות מהדפדפן!');
-            alert('🚀 PWA נפתח ישירות מהדפדפן!');
+        if (isPWA()) {
+            console.log('🚀 PWA נפתח ישירות מהדפדפן!');               
+            document.getElementById("iframe_enter").src = `https://www.mishehilekafe.co.il/enter-pwa`;
+
         }
     }
-});
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault(); // מונע מהדפדפן להציג את הדיאלוג אוטומטית
-    deferredPrompt = e;
-
-    console.log('📲 אירוע beforeinstallprompt זוהה!');
-    alert('📲 ניתן להתקין את ה-PWA!');
-});
-
-// זיהוי אם ה-PWA הותקן
-window.addEventListener('appinstalled', () => {
-    console.log('🎉 האפליקציה הותקנה בהצלחה!');
-    alert('🎉 האפליקציה הותקנה בהצלחה!');
 });
 
 /////////////////
@@ -183,9 +171,6 @@ async function updateDeviceToken(memberId, deviceToken) {
     }
 }
 
-function isPWA() {
-    return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-}
 
 
 
