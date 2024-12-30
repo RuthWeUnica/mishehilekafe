@@ -64,6 +64,11 @@ if ('Notification' in window) {
         console.log('דפדפן זה אינו תומך בנוטיפיקציות.');
     }
 }
+// 📲 מאזינים לאירוע התקנת PWA
+window.addEventListener('appinstalled', (event) => {
+    console.log('🎉 PWA was successfully installed!');
+    alert('האפליקציה הותקנה בהצלחה!');
+});
 
 // Function to get the FCM Token
 function getFCMToken() {
