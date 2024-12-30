@@ -59,7 +59,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 if ('Notification' in window) {
     if (Notification.permission === "granted") {
         console.log("permission granted, change url");
-         getFCMToken();
+        getFCMToken();
     } else {
         console.log('דפדפן זה אינו תומך בנוטיפיקציות.');
     }
@@ -80,7 +80,8 @@ function getFCMToken() {
                     console.log("FCM Token:", currentToken);
                     deviceToken = currentToken;
                     updateDeviceToken(memberId, currentToken);
-                    // document.getElementById("iframe_enter").src = `https://www.mishehilekafe.co.il/enter-pwa?notification=true`
+                    if (isPWA())
+                        document.getElementById("iframe_enter").src = `https://www.mishehilekafe.co.il/enter-pwa?notification=true`
                 } else {
                     console.warn("No registration token available. Request permission to generate one.");
                 }
@@ -112,7 +113,7 @@ window.addEventListener("message", e => {
             }
         });
     }
-    if(e.data === "log-out from PWA"){
+    if (e.data === "log-out from PWA") {
         window.location.href = `https://www.mishehilekafe.co.il?token=${deviceToken}&isPWA=${PWA}`;
     }
 });
