@@ -70,6 +70,7 @@ function isRunningAsPWA() {
 }
 
 // 📲 הפעלת הקוד בעת טעינת הדף
+console.log("09:26")
 document.addEventListener('DOMContentLoaded', () => {
     if (isRunningAsPWA()) {
         console.log('🚀 האפליקציה רצה במצב PWA!');
