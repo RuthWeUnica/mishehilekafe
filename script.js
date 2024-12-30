@@ -81,6 +81,22 @@ document.addEventListener('visibilitychange', () => {
         }
     }
 });
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); // מונע מהדפדפן להציג את הדיאלוג אוטומטית
+    deferredPrompt = e;
+
+    console.log('📲 אירוע beforeinstallprompt זוהה!');
+    alert('📲 ניתן להתקין את ה-PWA!');
+});
+
+// זיהוי אם ה-PWA הותקן
+window.addEventListener('appinstalled', () => {
+    console.log('🎉 האפליקציה הותקנה בהצלחה!');
+    alert('🎉 האפליקציה הותקנה בהצלחה!');
+});
+
 /////////////////
 
 
