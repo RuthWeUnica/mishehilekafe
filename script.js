@@ -64,21 +64,24 @@ if ('Notification' in window) {
         console.log('דפדפן זה אינו תומך בנוטיפיקציות.');
     }
 }
-// 📲 בדיקה האם האתר נפתח במצב PWA
-function isRunningAsPWA() {
-    return (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true);
-}
-
+///////////////////////////////
 // 📲 הפעלת הקוד בעת טעינת הדף
 console.log("09:26")
-document.addEventListener('DOMContentLoaded', () => {
-    if (isRunningAsPWA()) {
-        console.log('🚀 האפליקציה רצה במצב PWA!');
-        alert('🚀 האפליקציה רצה במצב PWA!');
-    } else {
-        console.log('🌐 האתר פתוח מהדפדפן.');
+// בודק אם הדף פתוח במצב PWA
+function isRunningAsPWA() {
+    return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+}
+
+// מזהה שינוי במצב התצוגה
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        if (isRunningAsPWA()) {
+            console.log('🚀 PWA נפתח ישירות מהדפדפן!');
+            alert('🚀 PWA נפתח ישירות מהדפדפן!');
+        }
     }
 });
+/////////////////
 
 
 // Function to get the FCM Token
