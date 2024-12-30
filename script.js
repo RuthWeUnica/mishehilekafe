@@ -80,7 +80,7 @@ function getFCMToken() {
                     console.log("FCM Token:", currentToken);
                     deviceToken = currentToken;
                     updateDeviceToken(memberId, currentToken);
-                    document.getElementById("iframe_enter").src = `https://www.mishehilekafe.co.il/enter-pwa?notification=true`
+                    // document.getElementById("iframe_enter").src = `https://www.mishehilekafe.co.il/enter-pwa?notification=true`
                 } else {
                     console.warn("No registration token available. Request permission to generate one.");
                 }
