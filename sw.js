@@ -88,9 +88,7 @@ function fetchAndCache(request) {
       console.error('Error fetching and caching:', error);
     });
 }
-self.addEventListener('appinstalled', (event) => {
-  console.log('🎉 PWA was successfully installed!');
-})
+
 // });
 // self.addEventListener('push', function(event) {
 //   const data = event.data.json();  // Assuming the server sends JSON
